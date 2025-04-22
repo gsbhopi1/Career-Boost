@@ -9,18 +9,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Header and Navigation */
 header {
     background: #111827; /* Dark Charcoal */
@@ -195,6 +183,7 @@ nav ul li a:hover {
     color: #D97706;
     text-decoration: underline;
 }
+
 /* Footer */
 footer {
     background: #111827; /* Dark Charcoal */
@@ -203,176 +192,87 @@ footer {
     margin-top: 30px;
     animation: fadeIn 3s ease-in-out;
 }
-/* Part-Time Jobs Page */
 
-.parttime-container h2 {
-    border-bottom: 2px solid #F3F4F6;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+/* Media Queries for Mobile Responsiveness */
+
+/* Mobile screens (up to 767px) */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        min-height: 40vh;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .features {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .feature {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .explore-section, .scholarships-container, .parttime-container, .colleges-container {
+        padding: 20px;
+    }
+
+    .category {
+        width: 100%;
+    }
+
+    .internship {
+        width: 100%;
+    }
+
+    footer {
+        text-align: center;
+    }
 }
 
+/* Tablet screens (768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .features {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 
-.parttime-container p,
-.parttime-container a {
-    text-align: left;
-    display: block;
+    .feature {
+        width: 45%;
+    }
+
+    .category, .internship {
+        width: 80%;
+    }
 }
-
-.internship {
-    background: #2D3748; /* Dark Gray Background */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    width: 500px; /* Ensures all boxes are the same size */
-    text-align: left;
-}
-
-/* Centers all internship sections */
-.parttime-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Moves everything to the left */
-    padding: 50px;
-    margin-left: 50px; /* Adjust this value if needed */
-}
-
-/* Colleges Page */
-.colleges-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
-    padding: 50px;
-    margin-left: 80px; /* Move it slightly to the right */
-}
-
-/* Drawer Content (Initially Hidden) */
-.drawer-content {
-    display: none;
-    padding: 10px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Show Drawer When Active */
-.drawer-content.active {
-    display: block;
-}
-
-/* Cut-Off Button Styling (Same as Drawer Buttons) */
-.cutoff-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-}
-
-.drawer-btn {
-    width: 500px; /* Matches the width of scholarship drawer buttons */
-    background: #2563EB;
-    color: white;
-    font-weight: bold;
-    padding: 20px;
-    text-align: center;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.drawer-btn:hover {
-    background: #1E40AF;
-}
-
-/* Background Images */
-.scholarships-container {
-    background: url('https://source.unsplash.com/1600x900/?scholarship,education,students') no-repeat center center/cover;
-    padding: 50px;
-    border-radius: 10px;
-}
-
-.parttime-container {
-    background: url('https://source.unsplash.com/1600x900/?internship,work,office') no-repeat center center/cover;
-    padding: 50px;
-    border-radius: 10px;
-}
-
-.cutoff-container {
-    background: url('https://source.unsplash.com/1600x900/?college,university,students') no-repeat center center/cover;
-    padding: 50px;
-    border-radius: 10px;
-}
-
-/* Button Transitions */
-.drawer-btn, .cutoff-btn {
-    transition: background 0.4s ease-in-out, transform 0.2s;
-}
-
-.drawer-btn:hover, .cutoff-btn:hover {
-    transform: scale(1.05);
-}
-
-/* Card Hover Effect */
-.internship, .category, .scholarship-details {
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s;
-}
-
-.internship:hover, .category:hover, .scholarship-details:hover {
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
-}
-
-/* Navigation Styling */
-nav ul li a {
-    transition: color 0.3s, background 0.3s;
-}
-
-nav ul li a:hover {
-    background: #F59E0B;
-    color: white;
-}
-
-/* Links */
-a {
-    transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-    color: #F59E0B;
-    text-decoration: underline;
-}
-
-/* Search Box Styling */
-nav ul {
-    display: flex;
-    align-items: center;
-}
-
-nav ul li {
-    list-style: none;
-    margin-right: 15px;
-}
-
-#searchBox {
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-#searchButton {
-    background: #2563EB; /* Blue color */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s;
-}
-
-#searchButton:hover {
-    background: #1E40AF; /* Darker Blue */
-}
-
