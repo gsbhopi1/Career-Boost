@@ -1,23 +1,30 @@
 /* General Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Prevents overflow due to padding/border */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #ffffff; /* Dark Blue-Gray */
-    color: #d6d6d6; /* Light Gray for readability */
+    background: #ffffff;
+    color: #d6d6d6;
     text-align: center;
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header and Navigation */
 header {
-    background: #111827; /* Dark Charcoal */
+    background: #111827;
     color: white;
     padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: fadeIn 1s ease-in-out; /* Animation added */
+    animation: fadeIn 1s ease-in-out;
 }
 
 header h1 {
@@ -37,16 +44,16 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #F3F4F6; /* Light Gray */
+    color: #F3F4F6;
     font-weight: bold;
     padding: 8px 15px;
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
-    animation: fadeIn 1.2s ease-in-out; /* Delayed animation */
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 nav ul li a:hover {
-    background: #2563EB; /* Blue Highlight */
+    background: #2563EB;
     color: white;
 }
 
@@ -61,7 +68,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-    animation: fadeIn 1.5s ease-in-out; /* Animation added */
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero h2 {
@@ -69,27 +76,24 @@ nav ul li a:hover {
     margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: bold;
-    animation: fadeIn 1.7s ease-in-out;
 }
 
 .hero p {
     font-size: 20px;
     font-weight: 500;
-    animation: fadeIn 1.9s ease-in-out;
 }
 
 /* Call-to-Action Button */
 .btn {
     display: inline-block;
     margin-top: 20px;
-    background: #F59E0B; /* Bright Orange */
+    background: #F59E0B;
     color: white;
     padding: 12px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
-    animation: fadeIn 2s ease-in-out;
 }
 
 .btn:hover {
@@ -107,22 +111,21 @@ nav ul li a:hover {
 }
 
 .feature {
-    background: #374151; /* Slightly lighter dark gray */
+    background: #374151;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease-in-out;
     width: 250px;
-    animation: fadeIn 2.5s ease-in-out;
 }
 
 .feature:hover {
     transform: translateY(-5px);
 }
 
-/* Explore Section (Moved Lower) */
+/* Explore Section */
 .explore-section {
-    margin-top: 120px; /* Push it further down */
+    margin-top: 120px;
     padding: 50px;
     text-align: center;
     animation: fadeIn 2.7s ease-in-out;
@@ -134,35 +137,22 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: flex-start;
     padding: 50px;
-    margin-left: 50px; /* Aligns with part-time jobs layout */
+    margin-left: 50px;
+    width: 100%; /* Ensure it's fluid */
 }
 
 .scholarships-container .category {
-    text-align: left; /* Keep text aligned to the left */
+    text-align: left;
     width: 100%;
 }
 
-.scholarships-container .category h2 {
-    text-align: left; /* Ensure heading aligns left */
-}
-
-.scholarships-container .category a {
-    text-align: left; /* Ensure links align left */
-    display: inline-block; /* Helps align links properly */
-}
-
-.scholarships-container .category a:hover {
-    text-decoration: underline;
-}
-
 .category {
-    background: #2D3748; /* Dark Gray Background */
+    background: #2D3748;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    width: 500px; /* Consistent box size with part-time jobs */
-    text-align: left;
+    width: 100%; /* Fluid width */
 }
 
 .category h2 {
@@ -172,7 +162,7 @@ nav ul li a:hover {
 }
 
 .category a {
-    color: #F59E0B; /* Bright Orange for visibility */
+    color: #F59E0B;
     font-weight: bold;
     text-decoration: none;
     display: block;
@@ -186,11 +176,16 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background: #111827; /* Dark Charcoal */
+    background: #111827;
     color: white;
     padding: 10px;
     margin-top: 30px;
     animation: fadeIn 3s ease-in-out;
+}
+
+/* Prevent Horizontal Overflow */
+* {
+    overflow-x: hidden;
 }
 
 /* Media Queries for Mobile Responsiveness */
