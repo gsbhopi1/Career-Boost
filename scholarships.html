@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Scholarships</h1>
+        <nav>
+            <ul>
+                <li><input type="text" id="searchBox" placeholder="Search..."></li>
+                <li><button id="searchButton">Search</button></li> <!-- Added Button -->
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="scholarships-container">
+
+        <div class="category">
+            <button class="drawer-btn">For Girls ▼</button>
+            <div class="drawer-content">
+                <div class="scholarship-details">
+                    <h3>P.G. Indira Gandhi Scholarship for Single Girl Child</h3>
+                    <p><strong>Objective:</strong> Financial aid for single girl children pursuing PG courses.</p>
+                    <p><strong>Eligibility:</strong> Full-time PG students (age ≤ 30) in a recognized university.</p>
+                    <p><strong>Slots:</strong> 3000 approx.</p>
+                    <p><strong>Tenure:</strong> 2 years</p>
+                    <p><strong>Financial Assistance:</strong> ₹36,200 per annum</p>
+                    <p><strong>Apply Here:</strong> <a href="https://scholarship.canarabank.in" target="_blank">National Scholarship Portal</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="category">
+            <button class="drawer-btn">Sports Talent ▼</button>
+            <div class="drawer-content">
+                <div class="scholarship-details">
+                    <h3>NHPC Sports Scholarship Scheme</h3>
+                    <p><strong>Deadline:</strong> 26-Mar-2025</p>
+                    <p><strong>Eligibility:</strong> Indian players (14-24 years) with top national/international rankings.</p>
+                    <p><strong>Benefits:</strong> Up to ₹48,000 for expenses & ₹14,000 monthly stipend.</p>
+                    <p><strong>Apply Here:</strong> <a href="https://www.buddy4study.com/scholarship/nhpc-sports-scholarship-scheme-2025" target="_blank">Application Page</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="category">
+            <button class="drawer-btn">SC/NT/OBC Student Scholarship ▼</button>
+            <div class="drawer-content">
+                <div class="scholarship-details">
+                    <h3>Post Matric Scholarship for SC/Neo-Buddhist Students (Maharashtra)</h3>
+                    <p><strong>Deadline:</strong> 31-Mar-2025</p>
+                    <p><strong>Eligibility:</strong> SC/Neo-Buddhist students in Maharashtra with an annual income ≤ ₹2,50,000.</p>
+                    <p><strong>Benefits:</strong> Tuition & exam fee reimbursement.</p>
+                    <p><strong>Apply Here:</strong> <a href="https://scholarship.maharashtra.gov.in" target="_blank">Scholarship Portal</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="category">
+            <button class="drawer-btn">International Scholarships ▼</button>
+            <div class="drawer-content">
+                <div class="scholarship-details">
+                    <h3>TOEFL Global Scholar Challenge 2025-26</h3>
+                    <p><strong>Deadline:</strong> 30-Apr-2025</p>
+                    <p><strong>Eligibility:</strong> Indian students (3rd/4th year) or professionals (≤ 2 years of work experience).</p>
+                    <p><strong>Benefits:</strong> ₹1.3 lakh total prize pool.</p>
+                    <p><strong>Apply Here:</strong> <a href="https://www.buddy4study.com/scholarship/toefl-global-scholar-challenge-2025-26" target="_blank">Application Page</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="category">
+            <button class="drawer-btn">Talent-Based Scholarships ▼</button>
+            <div class="drawer-content">
+                <div class="scholarship-details">
+                    <h3>Buddy4Study's Online Degree Scholarship</h3>
+                    <p><strong>Deadline:</strong> 31-Mar-2025</p>
+                    <p><strong>Eligibility:</strong> Students enrolling in 100+ accredited universities for online UG/PG degrees.</p>
+                    <p><strong>Benefits:</strong> 15% refund on the first-semester fee.</p>
+                    <p><strong>Apply Here:</strong> <a href="https://www.buddy4study.com/scholarship/online-degree-scholarship-support-programme" target="_blank">Application Page</a></p>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchBox = document.getElementById("searchBox");
+            let searchButton = document.getElementById("searchButton");
+    
+            function performSearch() {
+                let query = searchBox.value.toLowerCase();
+                let sections = document.querySelectorAll(".category, .scholarship-details");
+    
+                sections.forEach(section => {
+                    if (section.innerText.toLowerCase().includes(query)) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+    
+            // Search on button click
+            searchButton.addEventListener("click", performSearch);
+    
+            // Search on typing (real-time)
+            searchBox.addEventListener("keyup", performSearch);
+        });
+    </script>
+    
+</body>
+
+</html>

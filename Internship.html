@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+    <header>
+        <h1>Internships</h1>
+        <nav>
+            <ul>
+                <li><input type="text" id="searchBox" placeholder="Search..."></li>
+                <li><button id="searchButton">Search</button></li> <!-- Added Button -->
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="parttime-container">
+        <div class="internship">
+            <h2>UNICEF</h2>
+            <p><strong>Position:</strong> Intern</p>
+            <p><strong>Duration:</strong> 6 to 26 weeks</p>
+            <p><strong>Amount:</strong> Monthly stipend (amount varies)</p>
+            <a href="https://jobs.unicef.org/en-us/job/580683/national-intern-communication-and-advocacy-freetown-6-months-open-to-sierra-leone-nationals-only" target="_blank">Apply Here</a>
+        </div>
+    
+        <div class="internship">
+            <h2>NASA</h2>
+            <p><strong>Position:</strong> Intern</p>
+            <p><strong>Duration:</strong> Varies (typically 10 weeks)</p>
+            <p><strong>Amount:</strong> Paid stipend (amount based on academic level and session duration)</p>
+            <a href="https://www.nasa.gov/learning-resources/internship-programs/" target="_blank">Apply Here</a>
+        </div>
+    
+        <div class="internship">
+            <h2>Google</h2>
+            <p><strong>Position:</strong> Various Internship Positions</p>
+            <p><strong>Duration:</strong> Varies</p>
+            <p><strong>Amount:</strong> Competitive stipend</p>
+            <a href="https://buildyourfuture.withgoogle.com/internships" target="_blank">Apply Here</a>
+        </div>
+    
+        <div class="internship">
+            <h2>Virtual Internships</h2>
+            <p><strong>Position:</strong> Various Internship Positions</p>
+            <p><strong>Duration:</strong> Flexible (you choose your start date, internship length, and weekly commitment of hours)</p>
+            <a href="https://www.virtualinternships.com/" target="_blank">Apply Here</a>
+        </div>
+    
+        <div class="internship">
+            <h2>Smithsonian Institution</h2>
+            <p><strong>Position:</strong> Various Internship Positions</p>
+            <p><strong>Duration:</strong> 10 weeks (June 2, 2025 - August 8, 2025)</p>
+            <p><strong>Amount:</strong> Not specified</p>
+            <a href="https://internships.si.edu/taxonomy/term/97" target="_blank">Apply Here</a>
+        </div>
+    
+        <div class="internship">
+            <h2>Internshala</h2>
+            <p><strong>Position:</strong> Various Work From Home Internships</p>
+            <p><strong>Duration:</strong> Varies</p>
+            <p><strong>Amount:</strong> Varies (depends on the specific internship)</p>
+            <a href="https://internshala.com/internships/work-from-home-internships/" target="_blank">Apply Here</a>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchBox = document.getElementById("searchBox");
+            let searchButton = document.getElementById("searchButton");
+    
+            function performSearch() {
+                let query = searchBox.value.toLowerCase();
+                let sections = document.querySelectorAll(".internship"); // Corrected selector
+    
+                sections.forEach(section => {
+                    if (section.innerText.toLowerCase().includes(query)) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+    
+            // Search on button click
+            searchButton.addEventListener("click", performSearch);
+    
+            // Search on typing (real-time)
+            searchBox.addEventListener("keyup", performSearch);
+        });
+    </script>
+</body>
+</html>
