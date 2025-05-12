@@ -7,34 +7,14 @@
     <title>Scholarships</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".drawer-btn");
-
-        buttons.forEach(button => {
-            button.addEventListener("click", function () {
-                const content = this.nextElementSibling;
-
-                // Toggle the active class
-                content.classList.toggle("active");
-
-                // Change button text to ▲ when open, ▼ when closed
-                if (content.classList.contains("active")) {
-                    this.innerHTML = this.innerHTML.replace("▼", "▲");
-                } else {
-                    this.innerHTML = this.innerHTML.replace("▲", "▼");
-                }
-            });
-        });
-    });
-</script>
-
 
 <body>
     <header>
         <h1>Scholarships</h1>
         <nav>
             <ul>
+                <li><input type="text" id="searchBox" placeholder="Search..."></li>
+                <li><button id="searchButton">Search</button></li> <!-- Added Button -->
                 <li><a href="index.html">Home</a></li>
             </ul>
         </nav>
@@ -110,6 +90,31 @@
         </div>
     
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchBox = document.getElementById("searchBox");
+            let searchButton = document.getElementById("searchButton");
+    
+            function performSearch() {
+                let query = searchBox.value.toLowerCase();
+                let sections = document.querySelectorAll(".category, .scholarship-details");
+    
+                sections.forEach(section => {
+                    if (section.innerText.toLowerCase().includes(query)) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+    
+            // Search on button click
+            searchButton.addEventListener("click", performSearch);
+    
+            // Search on typing (real-time)
+            searchBox.addEventListener("keyup", performSearch);
+        });
+    </script>
     
 </body>
 
