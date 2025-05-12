@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarships</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .drawer-content {
+            display: none; /* Ensure content is initially hidden */
+        }
+    </style>
 </head>
 
 <body>
@@ -14,8 +19,7 @@
         <nav>
             <ul>
                 <li><input type="text" id="searchBox" placeholder="Search..."></li>
-                <li><button id="searchButton">Search</button></li> <!-- Added Button -->
-                <li><a href="index.html">Home</a></li>
+                <li><button id="searchButton">Search</button></li> <li><a href="index.html">Home</a></li>
             </ul>
         </nav>
     </header>
@@ -36,7 +40,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="category">
             <button class="drawer-btn">Sports Talent ▼</button>
             <div class="drawer-content">
@@ -49,7 +53,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="category">
             <button class="drawer-btn">SC/NT/OBC Student Scholarship ▼</button>
             <div class="drawer-content">
@@ -62,7 +66,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="category">
             <button class="drawer-btn">International Scholarships ▼</button>
             <div class="drawer-content">
@@ -75,7 +79,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="category">
             <button class="drawer-btn">Talent-Based Scholarships ▼</button>
             <div class="drawer-content">
@@ -88,34 +92,61 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const drawerButtons = document.querySelectorAll(".drawer-btn");
+
+            drawerButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const content = this.nextElementSibling; // Get the next element, which is .drawer-content
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                        this.textContent = this.textContent.replace("▲", "▼"); // Change arrow direction
+                    } else {
+                        content.style.display = "block";
+                        this.textContent = this.textContent.replace("▼", "▲"); // Change arrow direction
+                    }
+                });
+            });
+
             let searchBox = document.getElementById("searchBox");
             let searchButton = document.getElementById("searchButton");
-    
+
             function performSearch() {
                 let query = searchBox.value.toLowerCase();
                 let sections = document.querySelectorAll(".category, .scholarship-details");
-    
+
                 sections.forEach(section => {
-                    if (section.innerText.toLowerCase().includes(query)) {
+                    const textToSearch = section.innerText.toLowerCase();
+                    if (textToSearch.includes(query)) {
                         section.style.display = "block";
+                        // If a category is shown due to search, ensure its drawer is open
+                        if (section.classList.contains('category')) {
+                            const content = section.querySelector('.drawer-content');
+                            if (content && content.style.display !== 'block') {
+                                content.style.display = 'block';
+                                const button = section.querySelector('.drawer-btn');
+                                if (button) {
+                                    button.textContent = button.textContent.replace("▼", "▲");
+                                }
+                            }
+                        }
                     } else {
                         section.style.display = "none";
                     }
                 });
             }
-    
+
             // Search on button click
             searchButton.addEventListener("click", performSearch);
-    
+
             // Search on typing (real-time)
             searchBox.addEventListener("keyup", performSearch);
         });
     </script>
-    
+
 </body>
 
 </html>
