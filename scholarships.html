@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .drawer-content {
-            display: none; /* Ensure content is initially hidden */
+            display: none;
+            width: 100%;
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            width: 95%; /* Adjust as needed */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .drawer-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .scholarship-details {
+            text-align: left;
         }
     </style>
 </head>
@@ -19,7 +38,8 @@
         <nav>
             <ul>
                 <li><input type="text" id="searchBox" placeholder="Search..."></li>
-                <li><button id="searchButton">Search</button></li> <li><a href="index.html">Home</a></li>
+                <li><button id="searchButton">Search</button></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
         </nav>
     </header>
@@ -100,13 +120,13 @@
 
             drawerButtons.forEach(button => {
                 button.addEventListener("click", function () {
-                    const content = this.nextElementSibling; // Get the next element, which is .drawer-content
+                    const content = this.nextElementSibling;
                     if (content.style.display === "block") {
                         content.style.display = "none";
-                        this.textContent = this.textContent.replace("▲", "▼"); // Change arrow direction
+                        this.textContent = this.textContent.replace("▲", "▼");
                     } else {
                         content.style.display = "block";
-                        this.textContent = this.textContent.replace("▼", "▲"); // Change arrow direction
+                        this.textContent = this.textContent.replace("▼", "▲");
                     }
                 });
             });
@@ -122,7 +142,6 @@
                     const textToSearch = section.innerText.toLowerCase();
                     if (textToSearch.includes(query)) {
                         section.style.display = "block";
-                        // If a category is shown due to search, ensure its drawer is open
                         if (section.classList.contains('category')) {
                             const content = section.querySelector('.drawer-content');
                             if (content && content.style.display !== 'block') {
@@ -139,10 +158,7 @@
                 });
             }
 
-            // Search on button click
             searchButton.addEventListener("click", performSearch);
-
-            // Search on typing (real-time)
             searchBox.addEventListener("keyup", performSearch);
         });
     </script>
