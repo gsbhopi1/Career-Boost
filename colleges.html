@@ -17,14 +17,40 @@
     </header>
 
     <section class="cutoff-container">
-        <button class="drawer-btn" onclick="openCutoffPDF()">View Cut-Off</button>
+        <button class="drawer-btn" onclick="openCutoffPDF2020()">MHT-CET (2020-21) View Cut-Off</button>
     </section>
 
+    <section class="cutoff-container">
+        <button class="drawer-btn" onclick="openCutoffPDF2021()">MHT-CET (2021-22) View Cut-Off</button>
+    </section>
+
+    <section class="cutoff-container">
+        <button class="drawer-btn" onclick="openCutoffPDF()">MHT-CET (2022-23) View Cut-Off</button>
+    </section>
+
+    <section class="cutoff-container">
+        <button class="drawer-btn" onclick="openCutoffPDF2024()">JEE-ADV (2024-25) View Cut-Off</button>
+    </section>
+    
+
     <script>
+        function openCutoffPDF2020() {
+            // Change 'cutoff.pdf' to the actual file path on your system
+            window.open('2020-21.pdf', '_blank');
+        }
+        function openCutoffPDF2021() {
+            // Change 'cutoff.pdf' to the actual file path on your system
+            window.open('2021-22.pdf', '_blank');
+        }
         function openCutoffPDF() {
             // Change 'cutoff.pdf' to the actual file path on your system
             window.open('cutoff.pdf', '_blank');
         }
+        function openCutoffPDF2024(){
+            // Change 'cutoff.pdf' to the actual file path on your system
+            window.open('2024-25.pdf', '_blank');
+        }
+        
     </script>
 </body>
 </html>
