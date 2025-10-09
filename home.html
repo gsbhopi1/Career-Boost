@@ -21,7 +21,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="scholarships.html">Scholarships</a></li>
-                <li><a href="internship.html">Internships</a></li>
+                <li><a href="Internship.html">Internships</a></li>
                 <li><a href="colleges.html">Colleges</a></li>
             </ul>
         </nav>
@@ -61,6 +61,104 @@
     <footer>
         <p>&copy; 2025 CareerBoost. All rights reserved.</p>
     </footer>
+
+    <!-- ===== Simplified Helpo (offline version with predefined replies) ===== -->
+<style>
+  #helpo-widget{position:fixed;right:20px;bottom:22px;z-index:9999;font-family:Arial,Helvetica,sans-serif}
+  #helpo-bubble{width:62px;height:62px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,#f59e0b,#d97706);box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;
+    transition:.15s ease; border:3px solid rgba(255,255,255,0.15)}
+  #helpo-bubble:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+  #helpo-window{width:360px;max-width:calc(100vw - 40px);height:520px;background:#fff;border-radius:12px;
+    box-shadow:0 20px 50px rgba(2,6,23,.35);display:none;flex-direction:column;margin-bottom:12px}
+  #helpo-header{background:#111827;color:#fff;padding:12px 14px;display:flex;align-items:center}
+  #helpo-header .title{font-weight:700;font-size:15px}
+  #helpo-header .subtitle{font-size:12px;opacity:.85}
+  #helpo-body{flex:1;padding:12px;overflow:auto;background:linear-gradient(180deg,#f8fafc,#fff)}
+  .helpo-msg{margin:8px 0;display:flex;gap:8px}
+  .helpo-msg.user{justify-content:flex-end}
+  .helpo-bubblemsg{max-width:75%;padding:8px 10px;border-radius:10px;font-size:14px;line-height:1.3}
+  .helpo-bubblemsg.from-helpo{background:#111827;color:#fff;border-radius:12px 12px 12px 2px}
+  .helpo-bubblemsg.from-user{background:#f3f4f6;color:#111827;border-radius:12px 12px 2px 12px}
+  #helpo-input-area{padding:10px;border-top:1px solid rgba(15,23,42,.06);background:#fff;display:flex;gap:8px}
+  #helpo-input{flex:1;padding:10px 12px;border-radius:999px;border:1px solid #e6e7eb;outline:none;font-size:14px}
+  #helpo-send{background:#f59e0b;color:white;border:none;padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+  @media(max-width:420px){#helpo-window{width:92vw;height:72vh;bottom:12px;right:6px}}
+</style>
+
+<div id="helpo-widget">
+  <div id="helpo-window">
+    <div id="helpo-header">
+      <div style="display:flex;flex-direction:column;">
+        <div class="title">Helpo</div>
+        <div class="subtitle">CareerBoost Assistant</div>
+      </div>
+      <button id="helpo-close" style="margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;font-weight:700">✕</button>
+    </div>
+    <div id="helpo-body"></div>
+    <div id="helpo-input-area">
+      <input id="helpo-input" placeholder="Ask about internships, scholarships, cutoffs..." />
+      <button id="helpo-send">Send</button>
+    </div>
+  </div>
+
+  <div id="helpo-bubble" title="Chat with Helpo">
+    <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" fill="#fff"/></svg>
+  </div>
+</div>
+
+<script>
+(function(){
+  const bubble=document.getElementById("helpo-bubble");
+  const win=document.getElementById("helpo-window");
+  const body=document.getElementById("helpo-body");
+  const input=document.getElementById("helpo-input");
+  const send=document.getElementById("helpo-send");
+  const close=document.getElementById("helpo-close");
+
+  function appendMsg(txt,from="helpo"){
+    const wrap=document.createElement("div");
+    wrap.className="helpo-msg "+(from==="user"?"user":"helpo");
+    const msg=document.createElement("div");
+    msg.className="helpo-bubblemsg "+(from==="user"?"from-user":"from-helpo");
+    msg.innerHTML=txt;
+    wrap.appendChild(msg); body.appendChild(wrap);
+    body.scrollTop=body.scrollHeight;
+  }
+
+  // --- Predefined answers ---
+  function getAnswer(q){
+    q=q.toLowerCase();
+    if(q.includes("internship")||q.includes("internships"))
+      return "💼 There are several internship options listed on our Internships page. You can explore roles by location or field — from Pune to international opportunities!";
+    if(q.includes("scholarship"))
+      return "🎓 We feature scholarships based on merit, need, and special categories like sports or girls' programs. Check the Scholarships page for current openings.";
+    if(q.includes("cutoff")||q.includes("percentile"))
+      return "📊 College cutoffs are regularly updated under the Cutoffs section — you’ll find percentile and category-wise details for each college.";
+    if(q.includes("apply"))
+      return "📝 To apply, open the internship or scholarship you like and click the ‘Apply’ button. Make sure to check eligibility and deadline before submitting!";
+    if(q.includes("hello")||q.includes("hi")||q.includes("hey"))
+      return "👋 Hi there! I'm Helpo — your friendly CareerBoost assistant. I can help you explore internships, scholarships, and college cutoffs. What would you like to know?";
+    if(q.includes("contact")||q.includes("help"))
+      return "📩 You can reach out through the contact section of CareerBoost. Meanwhile, I can guide you to the right opportunities — what are you looking for?";
+    return "🤝 Thanks for asking! You can explore scholarships, internships, and cutoff updates here on CareerBoost. Try something like 'scholarships for engineering students' or 'latest cutoffs'.";
+  }
+
+  function sendMsg(){
+    const q=input.value.trim(); if(!q)return;
+    appendMsg(q,"user");
+    input.value="";
+    setTimeout(()=>appendMsg(getAnswer(q),"helpo"),500);
+  }
+
+  bubble.onclick=()=>{win.style.display="flex";appendMsg("Hi, I'm Helpo 👋 — I can help with internships, scholarships & college cutoffs. Ask me anything!","helpo");bubble.style.display="none";}
+  close.onclick=()=>{win.style.display="none";bubble.style.display="flex";}
+  send.onclick=sendMsg;
+  input.addEventListener("keydown",e=>{if(e.key==="Enter")sendMsg();});
+})();
+</script>
+<!-- ===== End Simplified Helpo ===== -->
+
 
 </body>
 </html>
