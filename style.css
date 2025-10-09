@@ -1,0 +1,461 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff url('https://source.unsplash.com/1600x900/?internship,work,office') no-repeat center center/cover;
+    color: #d6d6d6;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+#auth {
+      display: flex;
+      flex-direction: column;
+      /* Stack welcome and box vertically */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      gap: 20px;
+    }
+
+    #auth h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    /* ===== Login/Signup Box ===== */
+    .auth-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      transition: 0.5s;
+    }
+
+    /* ===== Tabs ===== */
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .tabs button.active {
+      border-bottom: 2px solid #111827;
+      font-weight: bold;
+      color: #111827;
+    }
+
+    .tabs button:hover {
+      color: #202d4a;
+    }
+
+    /* ===== Form Styling ===== */
+    #formContainer input {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    #formContainer button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: 111827;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #formContainer button:hover {
+      background: #202d4a;
+      transform: scale(1.03);
+    }
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header and Navigation */
+header {
+    background: #111827;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F3F4F6;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: #2563EB;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://source.unsplash.com/1600x900/?students,career,success') no-repeat center center/cover;
+    color: rgb(0, 0, 0);
+    padding: 80px 20px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: fadeIn 1.7s ease-in-out;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 500;
+    animation: fadeIn 1.9s ease-in-out;
+}
+
+/* Call-to-Action Button */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #F59E0B;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.btn:hover {
+    background: #D97706;
+    transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+    animation: fadeIn 2.3s ease-in-out;
+}
+
+.feature {
+    background: #374151;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
+    width: 250px;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+/* Explore Section */
+.explore-section {
+    margin-top: 120px;
+    padding: 50px;
+    text-align: center;
+    animation: fadeIn 2.7s ease-in-out;
+}
+
+/* Scholarship Page */
+.scholarships-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+    margin-left: 50px;
+}
+
+.scholarships-container .category {
+    text-align: left;
+    width: 100%;
+}
+
+.scholarships-container .category h2 {
+    text-align: left;
+}
+
+.scholarships-container .category a {
+    text-align: left;
+    display: inline-block;
+}
+
+.scholarships-container .category a:hover {
+    text-decoration: underline;
+}
+
+.category {
+    background: #2D3748;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    width: 500px;
+    text-align: left;
+}
+
+.category h2 {
+    border-bottom: 2px solid #F3F4F6;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.category a {
+    color: #F59E0B;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease-in-out;
+}
+
+.category a:hover {
+    color: #D97706;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #111827;
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Part-Time Jobs Page */
+.parttime-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 20px;
+}
+
+.parttime-container h2 {
+    border-bottom: 2px solid #0055ff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.parttime-container p,
+.parttime-container a {
+    text-align: left; /* Changed back to left alignment */
+    display: block;
+}
+
+.internship {
+    background: #2D3748;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    width: calc(50% - 20px);
+    flex: 0 0 calc(50% - 20px);
+    text-align: left; /* Ensured text alignment is left */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Colleges Page */
+.colleges-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+    margin-left: 80px;
+}
+
+/* Drawer Content */
+.drawer-content {
+    display: none;
+    padding: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.drawer-content.active {
+    display: block;
+}
+
+/* Cut-Off Button Styling */
+.cutoff-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+
+.drawer-btn {
+    width: 500px;
+    background: #2563EB;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.drawer-btn:hover {
+    background: #1E40AF;
+}
+
+/* Background Images */
+.scholarships-container {
+    background: url('https://source.unsplash.com/1600x900/?scholarship,education,students') no-repeat center center/cover;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.cutoff-container {
+    background: url('https://source.unsplash.com/1600x900/?college,university,students') no-repeat center center/cover;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+/* Button Transitions */
+.drawer-btn,
+.cutoff-btn {
+    transition: background 0.4s ease-in-out, transform 0.2s;
+}
+
+.drawer-btn:hover,
+.cutoff-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Card Hover Effect */
+.internship,
+.category,
+.scholarship-details {
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s;
+}
+
+.internship:hover,
+.category:hover,
+.scholarship-details:hover {
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Navigation Styling */
+nav ul li a {
+    transition: color 0.3s, background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #F59E0B;
+    color: white;
+}
+
+/* Links */
+a {
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #F59E0B;
+    text-decoration: underline;
+}
+
+/* Search Box Styling */
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin-right: 15px;
+}
+
+#searchBox {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#searchButton {
+    background: #2563EB;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+#searchButton:hover {
+    background: #1E40AF;
+}

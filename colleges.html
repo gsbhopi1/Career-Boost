@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Suggestion Tool</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* General Styles (From User Request) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Note: Using the provided background image URL */
+            background: #ffffff url('https://source.unsplash.com/1600x900/?internship,work,office') no-repeat center center/cover;
+            color: #d6d6d6; /* Light text color for contrast against background */
+            text-align: center;
+            scroll-behavior: smooth;
+            min-height: 100vh; /* Ensure body covers full viewport height */
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header and Navigation */
+        header {
+            background: #111827;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #F3F4F6;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        /* Main Content Wrapper for centering and internal padding (replaces old body classes) */
+        .main-content-wrapper {
+            padding: 40px 10px; /* Add padding similar to the old body padding */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* College Checker Card Styling (to ensure readability on the dark background) */
+        .college-checker-card {
+            background-color: white;
+            color: #1f2937; /* Darker text inside the white card */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Enhanced shadow */
+        }
+
+        /* Call-to-Action Button */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #F59E0B;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #D97706;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 10px;
+            margin-top: 30px;
+            animation: fadeIn 3s ease-in-out;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Updated to user-requested blue #0055ff
+                        'primary': '#0055ff', 
+                        // Set secondary to a slightly darker blue for hover effects
+                        'secondary': '#0044cc', 
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- HEADER/NAVBAR -->
+    <header>
+        <h1>CareerBoost</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <!-- <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="Internship.html">Internships</a></li>
+                <li><a href="colleges.html">Colleges</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Wrapper to handle centering and padding -->
+    <div class="main-content-wrapper">
+        <div class="w-full max-w-4xl college-checker-card rounded-xl p-6 md:p-10 transition-all duration-300">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-primary mb-2 text-center">
+                College Eligibility Checker
+            </h1>
+            <!-- <p class="text-center text-gray-500 mb-8">
+                The cutoff data is loaded from **'cutoffs_with_categories.csv'**. Select your percentile, category, and desired course below.
+            </p> -->
+
+            <!-- Input Section -->
+            <div class="bg-white p-5 rounded-lg border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">1. Your Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Percentile Input -->
+                    <div class="md:col-span-1">
+                        <label for="percentile" class="block text-sm font-medium text-gray-700 mb-1">Your Percentile (0-100)</label>
+                        <input 
+                            type="number" 
+                            id="percentile" 
+                            placeholder="e.g., 90.5"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150"
+                        >
+                    </div>
+                    
+                    <!-- Category Select Dropdown -->
+                    <div class="md:col-span-1">
+                        <label for="categorySelect" class="block text-sm font-medium text-gray-700 mb-1">Select Your Main Category</label>
+                        <select 
+                            id="categorySelect"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 bg-white disabled:bg-gray-100 disabled:text-gray-500 appearance-none"
+                            disabled
+                        >
+                            <option value="" disabled selected>Loading categories...</option>
+                        </select>
+                    </div>
+
+                    <!-- Course Select Dropdown (New) -->
+                    <div class="md:col-span-1">
+                        <label for="courseSelect" class="block text-sm font-medium text-gray-700 mb-1">Select Desired Course</label>
+                        <select 
+                            id="courseSelect"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 bg-white disabled:bg-gray-100 disabled:text-gray-500 appearance-none"
+                            disabled
+                        >
+                            <option value="" disabled selected>Loading courses...</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button 
+                    id="suggestButton"
+                    onclick="suggestColleges()" 
+                    class="mt-6 w-full px-6 py-3 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-secondary transition duration-300 transform hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled
+                >
+                    Suggest Colleges
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">2. Suggested Colleges (Ranked by Cutoff)</h2>
+                <div id="results" class="bg-gray-50 p-4 rounded-lg border border-gray-200 min-h-[100px]">
+                    <p class="text-gray-500 text-center py-6" id="initialMessage">
+                        Data loaded successfully! Enter your details and click 'Suggest Colleges'.
+                    </p>
+                    <ul id="collegeList" class="space-y-3">
+                        <!-- Results will be injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal/Message Box (replacing alert()) -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transition-transform transform scale-100">
+            <h3 class="text-xl font-bold text-red-600 mb-3" id="modalTitle">Error</h3>
+            <p class="text-gray-700 mb-5" id="modalMessage">An error occurred.</p>
+            <button onclick="document.getElementById('modal').classList.add('hidden')" 
+                    class="w-full py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const FILENAME = 'cutoffs_with_categories.csv'; 
+
+        // --- Global State & DOM References ---
+        let processedCutoffs = new Map(); 
+        
+        const suggestButton = document.getElementById('suggestButton');
+        const collegeList = document.getElementById('collegeList');
+        const initialMessage = document.getElementById('initialMessage');
+        const categorySelect = document.getElementById('categorySelect');
+        const courseSelect = document.getElementById('courseSelect'); // New course dropdown
+
+        // --- Utility Functions ---
+
+        /**
+         * Shows a custom modal message (replaces alert()).
+         */
+        function showMessage(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            
+            // Set title color dynamically
+            const titleElement = document.getElementById('modalTitle');
+            if (title.toLowerCase().includes('error') || title.toLowerCase().includes('invalid')) {
+                titleElement.classList.replace('text-green-600', 'text-red-600');
+                 if(!titleElement.classList.contains('text-red-600')) titleElement.classList.add('text-red-600');
+            } else {
+                 titleElement.classList.replace('text-red-600', 'text-green-600');
+                 if(!titleElement.classList.contains('text-green-600')) titleElement.classList.add('text-green-600');
+            }
+            
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        /**
+         * Maps a raw category string to one of the main categories: 
+         * OPEN, OBC, ST, SC, or Other/EWS.
+         */
+        function mapToMainCategory(category) {
+            if (!category || category.trim() === '') {
+                return 'OPEN';
+            }
+
+            const catStr = category.toUpperCase().trim();
+
+            if (catStr.includes('SC')) {
+                return 'SC';
+            }
+            if (catStr.includes('ST')) {
+                return 'ST';
+            }
+            if (catStr.includes('OBC')) {
+                return 'OBC';
+            }
+
+            // Check for other defined categories (EWS, NT, VJ, PwD, TFWS, etc.)
+            if (catStr.includes('EWS') || catStr.includes('NT') || catStr.includes('VJ') || catStr.includes('TFWS') || catStr.includes('PWD') || catStr.includes('PH') || catStr.includes('TFW')) {
+                return 'Other/EWS';
+            }
+
+            // Default to OPEN for all remaining (General, Ladies, Home University, etc.)
+            return 'OPEN';
+        }
+
+        /**
+         * Populates the category dropdown.
+         */
+        function populateCategorySelect(categories) {
+            categorySelect.innerHTML = ''; 
+            const sortedCategories = Array.from(categories).sort();
+            const placeholder = document.createElement('option');
+            placeholder.value = "";
+            placeholder.textContent = "--- Select Main Category ---";
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            categorySelect.appendChild(placeholder);
+            
+            sortedCategories.forEach(cat => {
+                if (cat.trim() !== "") {
+                    const option = document.createElement('option');
+                    option.value = cat;
+                    option.textContent = cat;
+                    categorySelect.appendChild(option);
+                }
+            });
+        }
+
+        /**
+         * Populates the course dropdown.
+         * @param {Set<string>} courses - A set of unique course strings.
+         */
+        function populateCourseSelect(courses) {
+            courseSelect.innerHTML = ''; 
+            const sortedCourses = Array.from(courses).sort();
+            const placeholder = document.createElement('option');
+            placeholder.value = "";
+            placeholder.textContent = "--- Select Desired Course ---";
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            courseSelect.appendChild(placeholder);
+            
+            sortedCourses.forEach(course => {
+                if (course.trim() !== "") {
+                    const option = document.createElement('option');
+                    option.value = course;
+                    option.textContent = course;
+                    courseSelect.appendChild(option);
+                }
+            });
+        }
+
+        // --- Core Logic ---
+
+        /**
+         * Parses the CSV text, maps the raw categories to main categories, 
+         * extracts unique courses, and calculates the maximum percentile cutoff.
+         */
+        function processCSV(csvText) {
+            try {
+                const lines = csvText.trim().split('\n').filter(line => line.trim() !== '');
+                if (lines.length < 2) {
+                    throw new Error("CSV file must contain a header and at least one data row.");
+                }
+
+                const headerLine = lines[0].trim();
+                const headers = headerLine.match(/(".*?"|[^",\r\n]+)(?=\s*,|\s*$)/g)?.map(h => h.replace(/^"|"$/g, '').trim()) || [];
+                
+                const collegeIndex = headers.findIndex(h => h.toLowerCase().includes('college'));
+                const courseIndex = headers.findIndex(h => h.toLowerCase().includes('course'));
+                const percentileIndex = headers.findIndex(h => h.toLowerCase().includes('percentile'));
+                const categoryIndex = headers.findIndex(h => h.toLowerCase().includes('category')); 
+
+                if (collegeIndex === -1 || courseIndex === -1 || percentileIndex === -1 || categoryIndex === -1) {
+                    throw new Error("CSV must contain columns named 'College', 'Course', 'Percentile', and 'Category'. Found headers: " + headers.join(', '));
+                }
+
+                let maxCutoffsMap = new Map(); 
+                let uniqueCategories = new Set(); 
+                let uniqueCourses = new Set(); // New set for unique courses
+
+                // 3. Process data rows
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    const cells = line.match(/(".*?"|[^",\r\n]+)(?=\s*,|\s*$)/g)?.map(c => c ? c.replace(/^"|"$/g, '').trim() : '');
+
+                    if (!cells) continue; 
+
+                    if (cells.length > Math.max(collegeIndex, courseIndex, percentileIndex, categoryIndex)) {
+                        const college = cells[collegeIndex];
+                        const course = cells[courseIndex];
+                        const percentile = parseFloat(cells[percentileIndex]);
+                        const originalCategory = cells[categoryIndex];
+                        
+                        const mainCategory = mapToMainCategory(originalCategory);
+                        
+                        if (college && course && !isNaN(percentile) && mainCategory) {
+                            
+                            // 1. Collect unique course name
+                            uniqueCourses.add(course);
+
+                            // 2. Map cutoff to main category key
+                            const key = `${college}|${course}|${mainCategory}`; 
+                            const currentMax = maxCutoffsMap.get(key) || 0;
+                            
+                            if (percentile > currentMax) {
+                                maxCutoffsMap.set(key, percentile);
+                            }
+                            
+                            // 3. Collect unique main category name
+                            uniqueCategories.add(mainCategory);
+                        }
+                    }
+                }
+
+                processedCutoffs = maxCutoffsMap;
+                
+                // Populate dropdowns and enable them
+                populateCategorySelect(uniqueCategories);
+                populateCourseSelect(uniqueCourses); // Populate new course dropdown
+
+                suggestButton.disabled = false;
+                categorySelect.disabled = false;
+                courseSelect.disabled = false; // Enable course dropdown
+                initialMessage.textContent = "Data loaded successfully! Select your options and click 'Suggest Colleges'.";
+
+            } catch (error) {
+                console.error("Data processing error:", error);
+                showMessage("Data Processing Error", `Could not process the data. Error: ${error.message}`);
+                
+                suggestButton.disabled = true;
+                categorySelect.disabled = true;
+                courseSelect.disabled = true;
+                categorySelect.innerHTML = `<option value="" disabled selected>Loading Failed</option>`;
+                courseSelect.innerHTML = `<option value="" disabled selected>Loading Failed</option>`;
+                initialMessage.textContent = `Data processing failed. Check the browser console for details.`;
+            }
+        }
+
+        /**
+         * Fetches the cutoff data from the predefined CSV file.
+         */
+        async function loadCutoffData() {
+            try {
+                initialMessage.textContent = `Loading ${FILENAME} from server... Please wait.`;
+
+                const response = await fetch(FILENAME);
+                
+                if (!response.ok) {
+                    console.error(`Fetch failed with status: ${response.status} ${response.statusText}`);
+                    throw new Error(`HTTP error ${response.status}. This usually means the file is not accessible. If running locally, try using a local web server (like Live Server in VS Code) instead of opening the HTML directly from the file system.`);
+                }
+                
+                const csvText = await response.text();
+                processCSV(csvText); 
+
+            } catch (error) {
+                console.error("Data loading failed:", error);
+                showMessage("File Loading Failed", 
+                    `Failed to load '${FILENAME}'. \n\nError: ${error.message}. \n\nIf you are viewing this file directly from your computer (e.g., file:///), your browser's security settings may be blocking the CSV. Please use a local web server (like 'Live Server' in VS Code) to run this application.`
+                );
+                
+                suggestButton.disabled = true;
+                categorySelect.disabled = true;
+                courseSelect.disabled = true;
+                categorySelect.innerHTML = `<option value="" disabled selected>Loading Failed</option>`;
+                courseSelect.innerHTML = `<option value="" disabled selected>Loading Failed</option>`;
+                initialMessage.textContent = `Failed to load data from ${FILENAME}. Please see the message box for troubleshooting.`;
+            }
+        }
+
+        /**
+         * Suggests colleges based on user input (percentile, course, and category).
+         */
+        function suggestColleges() {
+            if (processedCutoffs.size === 0) {
+                showMessage("Data Not Ready", "The cutoff data is not loaded yet. Please wait for the status to turn green.");
+                return;
+            }
+
+            const inputPercentile = parseFloat(document.getElementById('percentile').value);
+            // *** GETTING COURSE FROM DROPDOWN VALUE ***
+            const desiredCourse = courseSelect.value.trim(); 
+            const desiredCategory = categorySelect.value.trim(); 
+
+            if (isNaN(inputPercentile) || inputPercentile < 0 || inputPercentile > 100) {
+                showMessage("Invalid Input", "Please enter a valid percentile between 0 and 100.");
+                return;
+            }
+            if (desiredCourse === "") {
+                showMessage("Invalid Input", "Please select a desired course from the dropdown.");
+                return;
+            }
+            if (desiredCategory === "") {
+                showMessage("Invalid Input", "Please select your Category from the dropdown.");
+                return;
+            }
+
+            collegeList.innerHTML = '';
+            initialMessage.classList.add('hidden');
+            
+            let suggestedCollegesData = new Map(); 
+
+            for (const [key, maxCutoff] of processedCutoffs.entries()) {
+                const parts = key.split('|');
+                if (parts.length !== 3) continue;
+                
+                const [college, course, category] = parts;
+
+                // 1. Exact course matching (since it comes from dropdown, no need for toLowerCase here)
+                const courseMatch = course === desiredCourse; 
+                
+                // 2. Exact category matching 
+                const categoryMatch = category === desiredCategory;
+                
+                // 3. Percentile eligibility check
+                const percentileCheck = inputPercentile >= maxCutoff;
+
+                if (courseMatch && categoryMatch && percentileCheck) {
+                    suggestedCollegesData.set(college, maxCutoff);
+                }
+            }
+            
+            const suggestionsArray = Array.from(suggestedCollegesData, ([college, cutoff]) => ({ college, cutoff }));
+
+            // Sort by cutoff in DESCENDING order
+            suggestionsArray.sort((a, b) => b.cutoff - a.cutoff);
+
+
+            if (suggestionsArray.length === 0) {
+                initialMessage.classList.remove('hidden');
+                collegeList.innerHTML = `<li class="text-center py-4 text-lg text-red-700 font-medium">
+                    <p>No colleges found for "${desiredCourse}" (Category: ${desiredCategory}) with a percentile of ${inputPercentile.toFixed(2)}.</p>
+                    <p class="text-sm text-gray-500 mt-1">Try searching for a different course or a lower percentile.</p>
+                </li>`;
+            } else {
+                initialMessage.classList.add('hidden');
+                suggestionsArray.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-200';
+                    li.innerHTML = `
+                        <span class="font-bold text-primary mr-3">${index + 1}.</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2M8 10l4 4 4-4m-4 4V7" />
+                        </svg>
+                        <span class="font-medium text-gray-800">${item.college} 
+                            <span class="text-xs text-gray-400 ml-2">(Required Cutoff: ${item.cutoff.toFixed(2)}%)</span>
+                        </span>
+                    `;
+                    collegeList.appendChild(li);
+                });
+            }
+        }
+        
+        // --- Initialization ---
+        loadCutoffData();
+    </script>
+</body>
+</html>

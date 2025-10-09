@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarships</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
+    header {
+      background-color: #111827;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    nav ul li button {
+      background-color: #f59e0b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .scholarship-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 5%;
+    }
+    .scholarship {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .scholarship:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .scholarship h2 {
+      color: #111827;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .scholarship p {
+      margin: 4px 0;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+    .scholarship a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #f59e0b;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .scholarship a:hover {
+      background-color: #d97706;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Scholarships</h1>
+    <nav>
+      <ul>
+        <li><input type="text" id="searchBox" placeholder="Search..." /></li>
+        <li><button id="searchButton">Search</button></li>
+        <li><a href="home.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="scholarship-container">
+    <!-- Example Existing Cards -->
+    <div class="scholarship">
+      <h2>National Scholarship Portal (NSP)</h2>
+      <p><strong>Eligibility:</strong> Indian students pursuing post-matric courses</p>
+      <p><strong>Amount:</strong> Up to ₹30,000 per year</p>
+      <a href="https://scholarships.gov.in/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>AICTE Pragati Scholarship for Girls</h2>
+      <p><strong>Eligibility:</strong> Girl students in AICTE-approved colleges</p>
+      <p><strong>Amount:</strong> ₹50,000 per year</p>
+      <a href="https://www.aicte-india.org/schemes/students-development-schemes/Pragati" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>AICTE Saksham Scholarship</h2>
+      <p><strong>Eligibility:</strong> Differently-abled students pursuing technical education</p>
+      <p><strong>Amount:</strong> ₹50,000 per year</p>
+      <a href="https://www.aicte-india.org/schemes/students-development-schemes/saksham" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Inspire Scholarship (INSPIRE-SHE)</h2>
+      <p><strong>Eligibility:</strong> Science stream students with top performance in 12th</p>
+      <p><strong>Amount:</strong> ₹80,000 per year</p>
+      <a href="https://online-inspire.gov.in/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Fulbright-Nehru Master's Fellowship</h2>
+      <p><strong>Eligibility:</strong> Indian graduates applying for master's in the U.S.</p>
+      <p><strong>Amount:</strong> Full tuition + living expenses</p>
+      <a href="https://www.usief.org.in/Fellowships/Fulbright-Nehru-Masters-Fellowships.aspx" target="_blank">Apply Here</a>
+    </div>
+
+    <!-- 🔹 Added 10 More Valid Scholarships Below -->
+
+    <div class="scholarship">
+      <h2>Google India Women Techmakers Scholarship</h2>
+      <p><strong>Eligibility:</strong> Female students in computer science/engineering</p>
+      <p><strong>Amount:</strong> ₹1,00,000 + mentorship support</p>
+      <a href="https://buildyourfuture.withgoogle.com/scholarships/google-women-techmakers-scholarship-apac" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>HDFC Bank Parivartan's ECSS Programme</h2>
+      <p><strong>Eligibility:</strong> School, college, or postgraduate students from low-income families</p>
+      <p><strong>Amount:</strong> Up to ₹75,000 per year</p>
+      <a href="https://www.hdfcbank.com/htdocs/common/ECSS_scholarship.htm" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>LIC HFL Vidyadhan Scholarship</h2>
+      <p><strong>Eligibility:</strong> Students in Class 10 to post-graduation</p>
+      <p><strong>Amount:</strong> ₹10,000 to ₹25,000 per year</p>
+      <a href="https://www.licindia.in/Bottom-Links/Scholarship" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Reliance Foundation Scholarship</h2>
+      <p><strong>Eligibility:</strong> Undergraduate and postgraduate students in India</p>
+      <p><strong>Amount:</strong> Up to ₹6,00,000 total support</p>
+      <a href="https://www.reliancefoundation.org/education/reliance-foundation-scholarships" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Tata Scholarship (Cornell University)</h2>
+      <p><strong>Eligibility:</strong> Indian students admitted to Cornell University</p>
+      <p><strong>Amount:</strong> Full tuition and living costs</p>
+      <a href="https://admissions.cornell.edu/financial-aid/international-students/tata-scholarship" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Swami Vivekananda Scholarship</h2>
+      <p><strong>Eligibility:</strong> Students from West Bengal with strong academics</p>
+      <p><strong>Amount:</strong> ₹12,000 to ₹60,000 per year</p>
+      <a href="https://svmcm.wbhed.gov.in/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>NTPC Scholarship Scheme</h2>
+      <p><strong>Eligibility:</strong> SC/ST and PWD engineering students</p>
+      <p><strong>Amount:</strong> ₹2,000 per month for 4 years</p>
+      <a href="https://www.ntpc.co.in/en/careers/scholarships" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Aditya Birla Scholarship</h2>
+      <p><strong>Eligibility:</strong> Students from top engineering, law, and management institutes</p>
+      <p><strong>Amount:</strong> ₹1,80,000 per year (management) / ₹65,000 (engineering)</p>
+      <a href="https://www.adityabirlascholars.net/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>ONGC Scholarship</h2>
+      <p><strong>Eligibility:</strong> SC/ST/OBC/EWS students in professional courses</p>
+      <p><strong>Amount:</strong> ₹48,000 per year</p>
+      <a href="https://ongcscholar.org/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Kishore Vaigyanik Protsahan Yojana (KVPY)</h2>
+      <p><strong>Eligibility:</strong> Science stream students (Class 11–B.Sc)</p>
+      <p><strong>Amount:</strong> ₹5,000–₹7,000 per month + contingency</p>
+      <a href="http://kvpy.iisc.ernet.in/main/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="scholarship">
+      <h2>Mahindra All India Talent Scholarship</h2>
+      <p><strong>Eligibility:</strong> Polytechnic diploma students from low-income families</p>
+      <p><strong>Amount:</strong> ₹10,000 per year</p>
+      <a href="https://www.kcmet.org/what-we-do-Scholarship.aspx" target="_blank">Apply Here</a>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBox = document.getElementById("searchBox");
+      const searchButton = document.getElementById("searchButton");
+      const sections = document.querySelectorAll(".scholarship");
+
+      function performSearch() {
+        const query = searchBox.value.toLowerCase();
+        sections.forEach((section) => {
+          if (section.innerText.toLowerCase().includes(query)) {
+            section.style.display = "block";
+          } else {
+            section.style.display = "none";
+          }
+        });
+      }
+
+      searchButton.addEventListener("click", performSearch);
+      searchBox.addEventListener("keyup", performSearch);
+    });
+  </script>
+</body>
+</html>
