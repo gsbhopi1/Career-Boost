@@ -63,6 +63,7 @@
     <h1>Scholarship</h1>
     <nav>
       <ul>
+        <li><button id="sortAmountButton">Sort by Amount</button></li>
         <li><input type="text" id="searchBox" placeholder="Search..." /></li>
         <li><button id="searchButton">Search</button></li>
         <li><a href="home.html">Home</a></li>
@@ -242,6 +243,34 @@
       searchButton.addEventListener("click", performSearch);
       searchBox.addEventListener("keyup", performSearch);
     });
+    document.addEventListener("DOMContentLoaded", function () {
+  const sortAmountButton = document.getElementById("sortAmountButton");
+  const container = document.querySelector(".scholarship-container");
+  const sections = Array.from(document.querySelectorAll(".scholarship"));
+
+  // Helper: extract numeric amount from text (handles ranges and currencies)
+  function extractAmount(text) {
+    let numbers = text.match(/[\d,]+/g); // get all numbers
+    if (!numbers) return Number.NEGATIVE_INFINITY; // non-numeric amounts go last
+    let numericValues = numbers.map(n => parseInt(n.replace(/,/g, ""), 10));
+    return Math.max(...numericValues); // pick largest in range
+  }
+
+  // Sort scholarships by amount (high to low)
+  function sortByAmount() {
+    const sortedSections = sections.slice().sort((a, b) => {
+      const aAmount = extractAmount(a.querySelector("p:nth-of-type(2)").innerText);
+      const bAmount = extractAmount(b.querySelector("p:nth-of-type(2)").innerText);
+      return bAmount - aAmount; // descending
+    });
+
+    container.innerHTML = "";
+    sortedSections.forEach(section => container.appendChild(section));
+  }
+
+  sortAmountButton.addEventListener("click", sortByAmount);
+  });
+    
   </script>
 </body>
 </html>
