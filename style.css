@@ -10,87 +10,86 @@ body {
 }
 
 #auth {
-      display: flex;
-      flex-direction: column;
-      /* Stack welcome and box vertically */
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      gap: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    gap: 20px;
+}
 
-    #auth h2 {
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 28px;
-    }
+#auth h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+}
 
-    /* ===== Login/Signup Box ===== */
-    .auth-box {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      width: 320px;
-      transition: 0.5s;
-    }
+/* ===== Login/Signup Box ===== */
+.auth-box {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    transition: 0.5s;
+}
 
-    /* ===== Tabs ===== */
-    .tabs {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
+/* ===== Tabs ===== */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
 
-    .tabs button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-bottom: 2px solid transparent;
-      background: none;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
 
-    .tabs button.active {
-      border-bottom: 2px solid #111827;
-      font-weight: bold;
-      color: #111827;
-    }
+.tabs button.active {
+    border-bottom: 2px solid #111827;
+    font-weight: bold;
+    color: #111827;
+}
 
-    .tabs button:hover {
-      color: #202d4a;
-    }
+.tabs button:hover {
+    color: #202d4a;
+}
 
-    /* ===== Form Styling ===== */
-    #formContainer input {
-      width: 100%;
-      padding: 10px 12px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
+/* ===== Form Styling ===== */
+#formContainer input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
 
-    #formContainer button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background: 111827;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+#formContainer button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: 111827;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    #formContainer button:hover {
-      background: #202d4a;
-      transform: scale(1.03);
-    }
+#formContainer button:hover {
+    background: #202d4a;
+    transform: scale(1.03);
+}
 
 /* Fade-in Animation */
 @keyframes fadeIn {
@@ -224,68 +223,60 @@ nav ul li a:hover {
 }
 
 /* Scholarship Page */
-.scholarships-container {
+.scholarship-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 5%;
+    background: url('https://source.unsplash.com/1600x900/?scholarship,education,students') no-repeat center center/cover;
+    border-radius: 10px;
+}
+
+.scholarship {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 50px;
-    margin-left: 50px;
+    justify-content: space-between; /* Push button to bottom */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%; /* Make all cards equal height */
 }
 
-.scholarships-container .category {
-    text-align: left;
-    width: 100%;
+.scholarship:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.scholarships-container .category h2 {
-    text-align: left;
+.scholarship h2 {
+    color: #111827;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 
-.scholarships-container .category a {
-    text-align: left;
+.scholarship p {
+    margin: 4px 0;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.scholarship a {
+    margin-top: auto; /* push to bottom */
     display: inline-block;
-}
-
-.scholarships-container .category a:hover {
-    text-decoration: underline;
-}
-
-.category {
-    background: #2D3748;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    width: 500px;
-    text-align: left;
-}
-
-.category h2 {
-    border-bottom: 2px solid #F3F4F6;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.category a {
-    color: #F59E0B;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s ease-in-out;
-}
-
-.category a:hover {
-    color: #D97706;
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    background: #111827;
+    background-color: #F59E0B;
     color: white;
-    padding: 10px;
-    margin-top: 30px;
-    animation: fadeIn 3s ease-in-out;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.scholarship a:hover {
+    background-color: #D97706;
+    transform: scale(1.05);
 }
 
 /* Part-Time Jobs Page */
@@ -306,7 +297,7 @@ footer {
 
 .parttime-container p,
 .parttime-container a {
-    text-align: left; /* Changed back to left alignment */
+    text-align: left;
     display: block;
 }
 
@@ -317,7 +308,7 @@ footer {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     width: calc(50% - 20px);
     flex: 0 0 calc(50% - 20px);
-    text-align: left; /* Ensured text alignment is left */
+    text-align: left;
     margin-bottom: 20px;
     box-sizing: border-box;
 }
@@ -348,6 +339,9 @@ footer {
     justify-content: center;
     align-items: center;
     height: 5vh;
+    background: url('https://source.unsplash.com/1600x900/?college,university,students') no-repeat center center/cover;
+    padding: 50px;
+    border-radius: 10px;
 }
 
 .drawer-btn {
@@ -362,34 +356,11 @@ footer {
     cursor: pointer;
     font-size: 20px;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .drawer-btn:hover {
     background: #1E40AF;
-}
-
-/* Background Images */
-.scholarships-container {
-    background: url('https://source.unsplash.com/1600x900/?scholarship,education,students') no-repeat center center/cover;
-    padding: 50px;
-    border-radius: 10px;
-}
-
-.cutoff-container {
-    background: url('https://source.unsplash.com/1600x900/?college,university,students') no-repeat center center/cover;
-    padding: 50px;
-    border-radius: 10px;
-}
-
-/* Button Transitions */
-.drawer-btn,
-.cutoff-btn {
-    transition: background 0.4s ease-in-out, transform 0.2s;
-}
-
-.drawer-btn:hover,
-.cutoff-btn:hover {
     transform: scale(1.05);
 }
 
