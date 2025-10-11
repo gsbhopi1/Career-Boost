@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerBoost — Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff url('https://source.unsplash.com/1600x900/?internship,work,office') no-repeat center center/cover;
+      color: #000000;
+      text-align: center;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 24px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(31,41,55,0.08);
+      overflow: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      background: #111827;
+      color: white;
+    }
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.25);
+    }
+    header button {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    header button:first-of-type {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+    }
+    header button:last-of-type {
+      background: white;
+      color: #0f172a;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      padding: 24px;
+    }
+    section, aside div {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+      margin-bottom: 18px;
+    }
+    h2, h3 {
+      margin: 0 0 10px 0;
+    }
+    .skills span {
+      display: inline-block;
+      margin: 4px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    footer {
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fbfdff;
+      border-top: 1px solid #eef2ff;
+    }
+    footer button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    footer button:first-of-type {
+      border: 1px solid #e6eefc;
+      background: transparent;
+    }
+    footer button:last-of-type {
+      border: none;
+      background: #0ea5a1;
+      color: white;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header and Navigation */
+    header {
+      background: #111827;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #F3F4F6;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    nav ul li a:hover {
+      background: #f59e0b;
+      color: white;
+    }
+
+    /* ---------- ABOUT SECTION IMPROVED ---------- */
+    section > div:first-of-type {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 5px solid #0ea5a1;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section > div:first-of-type:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(14,165,161,0.2);
+    }
+    section > div:first-of-type h2 {
+      font-size: 22px;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    section > div:first-of-type p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #334155;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>CareerBoost</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+  <div class="container">
+    <header>
+      <img src="https://static.vecteezy.com/system/resources/previews/018/765/757/original/user-profile-icon-in-flat-style-member-avatar-illustration-on-isolated-background-human-permission-sign-business-concept-vector.jpg" alt="Profile">
+      <div style="flex:1;">
+        <h1>Aarav Sharma</h1>
+        <p>B.Tech (CSE) • 3rd Year • Pune, India</p>
+      </div>
+      <div>
+        <button>Message</button>
+        <button>Edit Profile</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div>
+          <h2>About</h2>
+          <p>Passionate computer science student focusing on machine learning and web development. Actively seeking internships and scholarships that help expand practical skills and industry exposure.</p>
+        </div>
+
+        <div>
+          <h3>Education</h3>
+          <strong>MIT-ADR, Pune</strong><br>
+          <small>B.Tech — Computer Science</small>
+          <p><b>Aggregate:</b> 82.4%</p>
+        </div>
+
+        <div>
+          <h3>Skills</h3>
+          <div class="skills">
+            <span style="background:#eef2ff; color:#3730a3;">C++</span>
+            <span style="background:#ffedd5; color:#92400e;">HTML & CSS</span>
+            <span style="background:#ecfccb; color:#365314;">JavaScript</span>
+            <span style="background:#f0f9ff; color:#155e75;">Machine Learning</span>
+            <span style="background:#fef3c7; color:#92400e;">Data Structures</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>Saved Opportunities</h3>
+          <ul style="list-style:none; padding:0;">
+            <li><b>Google Summer of Code</b> — Scholarship • Deadline: Jun 30, 2026</li>
+            <li><b>Frontend Intern — Acme Labs</b> • 3 months</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside>
+        <div>
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:aarav.sharma@example.com">aarav.sharma@example.com</a></p>
+          <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+        </div>
+        <div>
+          <h3>Achievements</h3>
+          <ul>
+            <li>Winner — College Hackathon (2024)</li>
+            <li>Top 5% in Semester 4</li>
+            <li>Completed Machine Learning course (Coursera)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>College Matches</h3>
+          <ul>
+            <li><b>COEP Pune</b> — Computer Science (Cutoff: 89%)</li>
+            <li><b>SPPU</b> — Computer Science (Cutoff: 82%)</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>Member since: <b>Aug 2024</b></div>
+      <div>
+        <button>Export CV</button>
+        <button>Apply Saved</button>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
