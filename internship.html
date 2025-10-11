@@ -48,7 +48,7 @@
       border-radius: 6px;
       cursor: pointer;
     }
-    /* Filter bar styling (unchanged) */
+    /* Non-invasive filter bar styling only — does NOT override .internship card styles */
     .filter-container {
       display: flex;
       flex-wrap: wrap;
@@ -67,28 +67,21 @@
       background: #fff;
       cursor: pointer;
     }
-    @media (max-width: 480px) {
-      .filter-container { flex-direction: column; gap:8px; }
-      .filter-container input { width: 95%; }
-    }
-
-    /* ⭐ star button inside each card */
     .save-btn {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      background: transparent;
+      background: none;
       border: none;
-      font-size: 22px;
-      color: rgba(0,0,0,0.2);
       cursor: pointer;
-      transition: color 0.25s ease;
+      font-size: 20px;
+      color: transparent;
+      float: right;
+      transition: color 0.2s ease;
     }
     .save-btn.saved {
       color: gold;
     }
-    .internship {
-      position: relative; /* needed for star positioning */
+    @media (max-width: 480px) {
+      .filter-container { flex-direction: column; gap:8px; }
+      .filter-container input { width: 95%; }
     }
   </style>
 </head>
@@ -100,151 +93,163 @@
       <ul>
         <li><input type="text" id="searchBox" placeholder="Search..." /></li>
         <li><button id="searchButton">Search</button></li>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Filters (unchanged) -->
+  <!-- Filters -->
   <div class="filter-container">
     <select id="sortSelect">
       <option value="">Sort By</option>
       <option value="duration">Duration (Shortest → Longest)</option>
       <option value="amount">Amount (Lowest → Highest)</option>
     </select>
-
     <input type="text" id="skillFilter" placeholder="Filter by skill (e.g. Java, Marketing)" />
-
     <button id="saveVisible">Save Visible</button>
     <button id="viewSaved">View Saved</button>
   </div>
 
-  <!-- All internships (unchanged content, just star added) -->
+  <!-- Internship cards (original + added skills) -->
   <section class="parttime-container" id="internshipContainer">
 
     <div class="internship" data-id="unicef">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn" title="Save Internship">⭐</button>
         <h2>UNICEF</h2>
         <p><strong>Position:</strong> Intern</p>
         <p><strong>Duration:</strong> 6 to 26 weeks</p>
         <p><strong>Amount:</strong> Monthly stipend (amount varies)</p>
+        <p><strong>Skills:</strong> Communication, Social Work, Advocacy, Research</p>
         <a href="https://jobs.unicef.org/en-us/job/580683/national-intern-communication-and-advocacy-freetown-6-months-open-to-sierra-leone-nationals-only" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="nasa">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>NASA</h2>
         <p><strong>Position:</strong> Intern</p>
-        <p><strong>Duration:</strong> Varies (typically 10 weeks)</p>
-        <p><strong>Amount:</strong> Paid stipend (amount based on academic level and session duration)</p>
+        <p><strong>Duration:</strong> 10 weeks</p>
+        <p><strong>Amount:</strong> Paid stipend (varies by academic level)</p>
+        <p><strong>Skills:</strong> Data Analysis, Python, Physics, Space Research</p>
         <a href="https://www.nasa.gov/learning-resources/internship-programs/" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="google">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Google</h2>
         <p><strong>Position:</strong> Various Internship Positions</p>
         <p><strong>Duration:</strong> Varies</p>
         <p><strong>Amount:</strong> Competitive stipend</p>
+        <p><strong>Skills:</strong> Java, Python, Cloud Computing, Data Structures</p>
         <a href="https://buildyourfuture.withgoogle.com/internships" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="virtualinternships">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Virtual Internships</h2>
         <p><strong>Position:</strong> Various Internship Positions</p>
         <p><strong>Duration:</strong> Flexible (you choose your start date and internship length)</p>
         <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> Remote Collaboration, Time Management, Research</p>
         <a href="https://www.virtualinternships.com/" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="smithsonian">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Smithsonian Institution</h2>
         <p><strong>Position:</strong> Various Internship Positions</p>
         <p><strong>Duration:</strong> 10 weeks (June 2, 2025 - August 8, 2025)</p>
         <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> History, Museum Studies, Research Writing</p>
         <a href="https://internships.si.edu/taxonomy/term/97" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="internshala">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Internshala</h2>
         <p><strong>Position:</strong> Various Work From Home Internships</p>
         <p><strong>Duration:</strong> Varies</p>
         <p><strong>Amount:</strong> Varies (depends on the specific internship)</p>
+        <p><strong>Skills:</strong> Marketing, Web Development, Content Writing</p>
         <a href="https://internshala.com/internships/work-from-home-internships/" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="unbendmartech">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Unbend Martech</h2>
         <p><strong>Position:</strong> Marketing Intern</p>
         <p><strong>Duration:</strong> 3 to 6 months</p>
         <p><strong>Amount:</strong> ₹8,000-₹10,000 per month</p>
-        <a href="https://www.naukri.com/job-listings-human-resource-intern-agrostar-pune-0-to-1-years-060525006807" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> Digital Marketing, SEO, Social Media, Communication</p>
+        <a href="https://www.naukri.com/job-listings-human-resource-intern-agrostar-pune-0-to-1-years-060525006807?src=fallback_jdexpiry&xp=1&sid=17470561150036843&px=1" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="sunbeam">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Sunbeam Institute</h2>
         <p><strong>Position:</strong> IT & Engineering Internships</p>
         <p><strong>Duration:</strong> 1, 2, or 6 months</p>
         <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> C, C++, Java, Database Management</p>
         <a href="https://sunbeaminfo.in/internship" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="codekul">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>CodeKul</h2>
         <p><strong>Position:</strong> Project-Based IT Internships</p>
         <p><strong>Duration:</strong> 1, 3, or 6 months</p>
         <p><strong>Amount:</strong> Not specified</p>
-        <a href="https://www.codekul.com/internship-training-institute-in-pune.html" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> Android Development, Java, Python, IoT</p>
+        <a href="https://www.codekul.com/internship-training-institute-in-pune.html?utm_source=chatgpt.com" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="myinternship">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>MyInternship.in</h2>
         <p><strong>Position:</strong> Technical Internships</p>
         <p><strong>Duration:</strong> Not specified</p>
         <p><strong>Amount:</strong> Not specified</p>
-        <a href="https://myinternship.in/" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> Frontend Development, Machine Learning, JavaScript</p>
+        <a href="https://myinternship.in/?utm_source=chatgpt.com#" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="indeed-events">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Indeed</h2>
         <p><strong>Position:</strong> Event Operations Intern (Cycling Races)</p>
         <p><strong>Duration:</strong> Not specified</p>
         <p><strong>Amount:</strong> Not specified</p>
-        <a href="https://in.indeed.com/m/jobs?q=internship%20students&l=pune%2C%20maharashtra" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> Event Management, Coordination, Communication</p>
+        <a href="https://in.indeed.com/m/jobs?q=internship%20students&l=pune%2C%20maharashtra&radius=25&from=mandatoryLanguageSelector&sameQ=1&sameL=1" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="katanamedia">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Katana Media Works</h2>
         <p><strong>Position:</strong> Technical Internships</p>
         <p><strong>Duration:</strong> Not specified</p>
         <p><strong>Amount:</strong> Not specified</p>
-        <a href="https://lbb.in/pune/offbeat-summer-internships-in-pune/" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> UI Design, Graphic Design, Video Editing</p>
+        <a href="https://lbb.in/pune/offbeat-summer-internships-in-pune/?utm_source=chatgpt.com" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="cmhs">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Center For Mental Health Services (CMHS)</h2>
         <p><strong>Position:</strong> Mental Health Services Intern</p>
         <p><strong>Duration:</strong> Not specified</p>
         <p><strong>Amount:</strong> Performance-based stipend</p>
-        <a href="https://www.naukri.com/bca-internship-jobs-in-pune" target="_blank">Apply Here</a>
+        <p><strong>Skills:</strong> Psychology, Counselling, Empathy</p>
+        <a href="https://www.naukri.com/bca-internship-jobs-in-pune?utm_source=chatgpt.com" target="_blank">Apply Here</a>
     </div>
 
     <div class="internship" data-id="indeed-it">
-        <button class="save-btn" title="Save Internship">★</button>
+        <button class="save-btn">⭐</button>
         <h2>Indeed</h2>
         <p><strong>Position:</strong> IT Engineer</p>
         <p><strong>Duration:</strong> 3 Months</p>
         <p><strong>Amount:</strong> ₹6500/month</p>
+        <p><strong>Skills:</strong> Networking, Troubleshooting, IT Support</p>
         <a href="https://in.indeed.com/m/viewjob?jk=76d387d4f791f2b0" target="_blank">Apply Here</a>
     </div>
 
@@ -262,13 +267,12 @@
 
       let showSavedOnly = false;
 
-      // --- Star toggle system ---
+      // Star save buttons logic
       const savedIds = JSON.parse(localStorage.getItem("savedInternships") || "[]");
-
       function updateStars() {
-        document.querySelectorAll(".save-btn").forEach(btn => {
-          const card = btn.closest(".internship");
+        document.querySelectorAll(".internship").forEach(card => {
           const id = card.dataset.id;
+          const btn = card.querySelector(".save-btn");
           if (savedIds.includes(id)) btn.classList.add("saved");
           else btn.classList.remove("saved");
         });
@@ -276,89 +280,48 @@
 
       document.querySelectorAll(".save-btn").forEach(btn => {
         btn.addEventListener("click", e => {
-          const card = e.target.closest(".internship");
-          const id = card.dataset.id;
-          const idx = savedIds.indexOf(id);
-          if (idx >= 0) savedIds.splice(idx, 1);
+          const id = e.target.closest(".internship").dataset.id;
+          const index = savedIds.indexOf(id);
+          if (index >= 0) savedIds.splice(index, 1);
           else savedIds.push(id);
           localStorage.setItem("savedInternships", JSON.stringify(savedIds));
           updateStars();
         });
       });
 
-      // --- Existing helpers unchanged ---
-      function parseDuration(text) {
-        if (!text) return 999;
-        const m = text.match(/(\d+)\s*(week|month|year)/i);
-        if (!m) return 999;
-        const v = parseInt(m[1], 10);
-        const u = m[2].toLowerCase();
-        if (u.startsWith("week")) return v * 7;
-        if (u.startsWith("month")) return v * 30;
-        if (u.startsWith("year")) return v * 365;
-        return 999;
-      }
+      // Helpers
+      function parseDuration(t){const m=t.match(/(\d+)\s*(week|month|year)/i);if(!m)return 999;const v=parseInt(m[1]);if(m[2].startsWith("week"))return v*7;if(m[2].startsWith("month"))return v*30;return v*365;}
+      function parseAmount(t){const n=t.replace(/[^\d]/g,"");return n?parseInt(n):0;}
+      function matchesSkill(s,q){if(!q)return true;const txt=s.innerText.toLowerCase();return q.split(',').some(skill=>txt.includes(skill.trim().toLowerCase()));}
 
-      function parseAmount(text) {
-        if (!text) return 0;
-        const digits = text.replace(/[^\d]/g, "");
-        return digits ? parseInt(digits, 10) : 0;
-      }
-
-      function matchesSkill(section, query) {
-        if (!query) return true;
-        const skillText = section.innerText.toLowerCase();
-        return query.split(",").some(s => skillText.includes(s.trim().toLowerCase()));
-      }
-
-      function loadSavedIds() {
-        try { return JSON.parse(localStorage.getItem("savedInternships") || "[]"); }
-        catch { return []; }
-      }
-
-      saveVisibleBtn.addEventListener("click", () => {
-        const visibleIds = Array.from(document.querySelectorAll(".internship"))
-          .filter(card => card.style.display !== "none" && card.dataset.id)
-          .map(card => card.dataset.id);
-        localStorage.setItem("savedInternships", JSON.stringify(visibleIds));
-        alert("Saved " + visibleIds.length + " internship(s).");
-        updateStars();
-      });
-
-      viewSavedBtn.addEventListener("click", () => {
-        showSavedOnly = !showSavedOnly;
-        viewSavedBtn.textContent = showSavedOnly ? "View All" : "View Saved";
-        applyFilters();
-      });
-
-      function applyFilters() {
-        const q = (searchBox.value || "").toLowerCase();
-        const skillQ = (skillFilter.value || "").toLowerCase();
-        const sortVal = sortSelect.value;
-        const savedNow = loadSavedIds();
-        const cards = Array.from(document.querySelectorAll(".internship"));
-        cards.forEach(card => {
-          const txt = (card.innerText || "").toLowerCase();
-          const id = card.dataset.id;
-          const isSaved = savedNow.includes(id);
-          const visible = (!showSavedOnly || isSaved) && txt.includes(q) && matchesSkill(card, skillQ);
-          card.style.display = visible ? "" : "none";
+      function applyFilters(){
+        const q=searchBox.value.toLowerCase();
+        const skillQ=skillFilter.value.toLowerCase();
+        const sortVal=sortSelect.value;
+        const cards=[...document.querySelectorAll(".internship")];
+        cards.forEach(c=>{
+          const id=c.dataset.id;
+          const isSaved=savedIds.includes(id);
+          const txt=c.innerText.toLowerCase();
+          const visible=(!showSavedOnly||isSaved)&&txt.includes(q)&&matchesSkill(c,skillQ);
+          c.style.display=visible?"":"none";
         });
-        const visibleCards = cards.filter(c => c.style.display !== "none");
-        if (sortVal) {
-          visibleCards.sort((a,b)=>{
-            if (sortVal==="duration") return parseDuration(a.innerText)-parseDuration(b.innerText);
-            if (sortVal==="amount") return parseAmount(a.innerText)-parseAmount(b.innerText);
-            return 0;
+        const vis=cards.filter(c=>c.style.display!=="none");
+        if(sortVal){
+          vis.sort((a,b)=>{
+            if(sortVal==="duration")return parseDuration(a.innerText)-parseDuration(b.innerText);
+            if(sortVal==="amount")return parseAmount(b.innerText)-parseAmount(a.innerText);
           });
-          visibleCards.forEach(c=>container.appendChild(c));
+          vis.forEach(c=>container.appendChild(c));
         }
       }
 
-      searchButton.addEventListener("click", applyFilters);
-      searchBox.addEventListener("keyup", applyFilters);
-      skillFilter.addEventListener("keyup", applyFilters);
-      sortSelect.addEventListener("change", applyFilters);
+      viewSavedBtn.addEventListener("click",()=>{showSavedOnly=!showSavedOnly;viewSavedBtn.textContent=showSavedOnly?"View All":"View Saved";applyFilters();});
+      saveVisibleBtn.addEventListener("click",()=>{const visible=[...document.querySelectorAll(".internship")].filter(c=>c.style.display!=="none").map(c=>c.dataset.id);localStorage.setItem("savedInternships",JSON.stringify(visible));alert("Saved "+visible.length+" internships.");updateStars();});
+      searchButton.addEventListener("click",applyFilters);
+      searchBox.addEventListener("keyup",applyFilters);
+      skillFilter.addEventListener("keyup",applyFilters);
+      sortSelect.addEventListener("change",applyFilters);
 
       updateStars();
       applyFilters();
@@ -366,4 +329,3 @@
   </script>
 </body>
 </html>
-
