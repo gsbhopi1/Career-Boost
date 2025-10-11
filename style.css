@@ -226,7 +226,7 @@ nav ul li a:hover {
 .scholarship-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 50px;
     padding: 40px 5%;
     background: url('https://source.unsplash.com/1600x900/?scholarship,education,students') no-repeat center center/cover;
     border-radius: 10px;
@@ -430,3 +430,4 @@ nav ul li {
 #searchButton:hover {
     background: #1E40AF;
 }
+
