@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Suggestion Tool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🔸 Original CSS (unchanged) */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, rgba(7, 10, 16, 0.95), rgba(12, 14, 20, 0.95)),
+                  url(https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop) center / cover no-repeat;
+      color: #d6d6d6;
+      text-align: center;
+      min-height: 100vh;
+    }
+    header {
+      background: #111827;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #F3F4F6;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out;
+    }
+    nav ul li a:hover {
+      background: #f59e0b;
+      color: white;
+    }
+    .main-content-wrapper {
+      padding: 40px 10px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 50px;
+    }
+    .college-checker-card {
+      background-color: white;
+      color: #1f2937;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      border-radius: 8px;
+      width: 600px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #F59E0B;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+    .btn:hover {
+      background: #D97706;
+      transform: scale(1.05);
+    }
+    footer {
+      background: #111827;
+      color: white;
+      padding: 10px;
+      margin-top: 156px;
+    }
+    .college-card {
+      background: white;
+      color: #1f2937;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 0;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    header {
+      background-color: #111827;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    nav ul li input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    nav ul li button {
+      background-color: #f59e0b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class = "home">
+  <header class="home-header">
+    <div class="hb-left">
+      <a href="home.html" class="logo" aria-label="CareerBoost home">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#111827"></circle>
+          <path d="M7 13l3 3 7-9" stroke="#F59E0B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand">CareerBoost</span>
+      </a>
+    </div>
+
+    <nav class="hb-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="scholarships.html">Scholarships</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="colleges.html">Colleges</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="hb-cta">
+    <button class="btn small" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="main-content-wrapper">
+    <div class="college-checker-card">
+      <h2 class="text-xl font-bold mb-4">Find Colleges Based on Percentile</h2>
+      <p>Enter your percentile, category, and desired course.</p>
+
+      <div style="margin-top:20px;">
+        <input id="percentile" type="number" placeholder="Your Percentile (e.g. 85.67)" class="border p-2 rounded w-full mb-2">
+        <select id="category" class="border p-2 rounded w-full mb-2">
+          <option value="">Select Category</option>
+          <option value="OPEN">OPEN</option>
+          <option value="DEFOBCS">DEFOBCS</option>
+          <option value="DEFOPENS">DEFOPENS</option>
+          <option value="DEFROBCS">DEFROBCS</option>
+          <option value="DEFRSCS">DEFRSCS</option>
+          <option value="DEFSCS">DEFSCS</option>
+          <option value="GOBCH">GOBCH</option>
+          <option value="GOBCO">GOBCO</option>
+          <option value="GOBCS">GOBCS</option>
+          <option value="GOPENH">GOPENH</option>
+          <option value="GOPENO">GOPENO</option>
+          <option value="GOPENS">GOPENS</option>
+          <option value="GSCH">GSCH</option>
+          <option value="GSCO">GSCO</option>
+          <option value="GSCS">GSCS</option>
+          <option value="GSTH">GSTH</option>
+          <option value="GSTO">GSTO</option>
+          <option value="GSTS">GSTS</option>
+          <option value="GVJH">GVJH</option>
+          <option value="GVJO">GVJO</option>
+          <option value="GVJS">GVJS</option>
+          <option value="LOBCH">LOBCH</option>
+          <option value="LOBCO">LOBCO</option>
+          <option value="LOBCS">LOBCS</option>
+          <option value="LOPENH">LOPENH</option>
+          <option value="LOPENO">LOPENO</option>
+          <option value="LOPENS">LOPENS</option>
+          <option value="LSCH">LSCH</option>
+          <option value="LSCO">LSCO</option>
+          <option value="LSCS">LSCS</option>
+          <option value="LSTH">LSTH</option>
+          <option value="LSTO">LSTO</option>
+          <option value="LSTS">LSTS</option>
+          <option value="LVJH">LVJH</option>
+          <option value="MI">MI</option>
+          <option value="PWDOPENH">PWDOPENH</option>
+          <option value="PWDOPENS">PWDOPENS</option>
+          <option value="PWDROBC">PWDROBC</option>
+          <option value="PWDRSCS">PWDRSCS</option>
+          <option value="PWDSCH">PWDSCH</option>
+          <option value="STAGE">STAGE</option>
+          <option value="TFWS">TFWS</option>
+</select>
+
+        </select>
+        <input id="branch" type="text" placeholder="Desired Course / Branch (e.g. Computer)" class="border p-2 rounded w-full mb-2">
+        <button onclick="searchColleges()" class="btn w-full">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="results"></section>
+
+  <footer>
+    <p>© 2025 CareerBoost</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    async function searchColleges() {
+      const percentile = document.getElementById('percentile').value.trim();
+      const category = document.getElementById('category').value.trim();
+      const branch = document.getElementById('branch').value.trim();
+
+      if (!percentile || isNaN(percentile)) {
+        alert("⚠️ Please enter a valid percentile value.");
+        return;
+      }
+
+      const query = new URLSearchParams({ percentile, category, branch }).toString();
+      const res = await fetch(`/api/colleges?${query}`);
+      const data = await res.json();
+
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = "";
+
+      if (!data.length) {
+        resultsDiv.innerHTML = `<p>No colleges found for percentile ${percentile} in ${branch || "selected"} branch.</p>`;
+        return;
+      }
+
+      data.forEach(college => {
+        const div = document.createElement("div");
+        div.classList.add("college-card");
+        div.innerHTML = `
+          <h3 class="text-lg font-bold">${college.College_Name}</h3>
+          <p><strong>Branch:</strong> ${college.Branch}</p>
+          <p><strong>Category:</strong> ${college.Category}</p>
+          <p><strong>Cutoff Percentile:</strong> ${college.Cutoff}</p>
+          ${college.Location ? `<p><strong>Location:</strong> ${college.Location}</p>` : ""}
+        `;
+        resultsDiv.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

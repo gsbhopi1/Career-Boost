@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internships</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body{
+      background: linear-gradient(180deg, rgba(7, 10, 16, 0.95), rgba(12, 14, 20, 0.95)), url(https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=) center / cover no-repeat;
+    }
+    header {
+      background-color: #111827;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+    nav ul li button {
+      background-color: #f59e0b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    /* Non-invasive filter bar styling only — does NOT override .internship card styles */
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 10px;
+      position: relative;
+      top: 25px;
+      max-width: 100%;
+    }
+    .filter-container select,
+    .filter-container input,
+    .filter-container button {
+      padding: 7px 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #111827 !important;
+      color: #e8edf5 !important;
+      cursor: pointer;
+    }
+    .filter-container select option {
+      background: #111827;
+      color: #e8edf5;
+    }
+    .save-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: #0000003b;
+      float: right;
+      transition: color 0.2s ease;
+    }
+    .save-btn.saved {
+      color: gold;
+    }
+    @media (max-width: 480px) {
+      .filter-container { flex-direction: column; gap:8px; }
+      .filter-container input { width: 95%; }
+    }
+  </style>
+</head>
+
+<body class="home">
+  <header class="home-header">
+   <div class="hb-left">
+      <a href="home.html" class="logo" aria-label="CareerBoost home">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#111827"></circle>
+          <path d="M7 13l3 3 7-9" stroke="#F59E0B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand">CareerBoost</span>
+      </a>
+    </div>
+    <nav class="hb-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="scholarships.html">Scholarships</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="colleges.html">Colleges</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><input type="text" id="searchBox" placeholder="Search..." /></li>
+        <li><button id="searchButton">Search</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Filters -->
+  <div class="filter-container">
+    <select id="sortSelect">
+      <option value="">Sort By</option>
+      <option value="duration">Duration (Shortest → Longest)</option>
+      <option value="amount">Amount (Lowest → Highest)</option>
+    </select>
+    <input type="text" id="skillFilter" placeholder="Filter by skill (e.g. Java, Marketing)" />
+    <button id="saveVisible">Save Visible</button>
+    <button id="viewSaved">View Saved</button>
+  </div>
+
+  <!-- Internship cards (original + added skills) -->
+  <section class="parttime-container" id="internshipContainer">
+
+    <div class="internship" data-id="unicef">
+        <button class="save-btn" title="Save Internship">⭐</button>
+        <h2>UNICEF</h2>
+        <p><strong>Position:</strong> Intern</p>
+        <p><strong>Duration:</strong> 6 to 26 weeks</p>
+        <p><strong>Amount:</strong> Monthly stipend (amount varies)</p>
+        <p><strong>Skills:</strong> Communication, Social Work, Advocacy, Research</p>
+        <a href="https://jobs.unicef.org/en-us/job/580683/national-intern-communication-and-advocacy-freetown-6-months-open-to-sierra-leone-nationals-only" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="nasa">
+        <button class="save-btn">⭐</button>
+        <h2>NASA</h2>
+        <p><strong>Position:</strong> Intern</p>
+        <p><strong>Duration:</strong> 10 weeks</p>
+        <p><strong>Amount:</strong> Paid stipend (varies by academic level)</p>
+        <p><strong>Skills:</strong> Data Analysis, Python, Physics, Space Research</p>
+        <a href="https://www.nasa.gov/learning-resources/internship-programs/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="google">
+        <button class="save-btn">⭐</button>
+        <h2>Google</h2>
+        <p><strong>Position:</strong> Various Internship Positions</p>
+        <p><strong>Duration:</strong> Varies</p>
+        <p><strong>Amount:</strong> Competitive stipend</p>
+        <p><strong>Skills:</strong> Java, Python, Cloud Computing, Data Structures</p>
+        <a href="https://buildyourfuture.withgoogle.com/internships" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="virtualinternships">
+        <button class="save-btn">⭐</button>
+        <h2>Virtual Internships</h2>
+        <p><strong>Position:</strong> Various Internship Positions</p>
+        <p><strong>Duration:</strong> Flexible (you choose your start date and internship length)</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> Remote Collaboration, Time Management, Research</p>
+        <a href="https://www.virtualinternships.com/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="smithsonian">
+        <button class="save-btn">⭐</button>
+        <h2>Smithsonian Institution</h2>
+        <p><strong>Position:</strong> Various Internship Positions</p>
+        <p><strong>Duration:</strong> 10 weeks (June 2, 2025 - August 8, 2025)</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> History, Museum Studies, Research Writing</p>
+        <a href="https://internships.si.edu/taxonomy/term/97" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="internshala">
+        <button class="save-btn">⭐</button>
+        <h2>Internshala</h2>
+        <p><strong>Position:</strong> Various Work From Home Internships</p>
+        <p><strong>Duration:</strong> Varies</p>
+        <p><strong>Amount:</strong> Varies (depends on the specific internship)</p>
+        <p><strong>Skills:</strong> Marketing, Web Development, Content Writing</p>
+        <a href="https://internshala.com/internships/work-from-home-internships/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="unbendmartech">
+        <button class="save-btn">⭐</button>
+        <h2>Unbend Martech</h2>
+        <p><strong>Position:</strong> Marketing Intern</p>
+        <p><strong>Duration:</strong> 3 to 6 months</p>
+        <p><strong>Amount:</strong> ₹8,000-₹10,000 per month</p>
+        <p><strong>Skills:</strong> Digital Marketing, SEO, Social Media, Communication</p>
+        <a href="https://internshala.com/company/unbend-martech-private-limited-1740725408/careers/" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="sunbeam">
+        <button class="save-btn">⭐</button>
+        <h2>Sunbeam Institute</h2>
+        <p><strong>Position:</strong> IT & Engineering Internships</p>
+        <p><strong>Duration:</strong> 1, 2, or 6 months</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> C, C++, Java, Database Management</p>
+        <a href="https://sunbeaminfo.in/internship" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="codekul">
+        <button class="save-btn">⭐</button>
+        <h2>CodeKul</h2>
+        <p><strong>Position:</strong> Project-Based IT Internships</p>
+        <p><strong>Duration:</strong> 1, 3, or 6 months</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> Android Development, Java, Python, IoT</p>
+        <a href="https://www.codekul.com/internship-training-institute-in-pune.html?utm_source=chatgpt.com" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="myinternship">
+        <button class="save-btn">⭐</button>
+        <h2>MyInternship.in</h2>
+        <p><strong>Position:</strong> Technical Internships</p>
+        <p><strong>Duration:</strong> Not specified</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> Frontend Development, Machine Learning, JavaScript</p>
+        <a href="https://myinternship.in/?utm_source=chatgpt.com#" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="indeed-events">
+        <button class="save-btn">⭐</button>
+        <h2>Indeed</h2>
+        <p><strong>Position:</strong> Event Operations Intern (Cycling Races)</p>
+        <p><strong>Duration:</strong> Not specified</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> Event Management, Coordination, Communication</p>
+        <a href="https://in.indeed.com/m/jobs?q=internship%20students&l=pune%2C%20maharashtra&radius=25&from=mandatoryLanguageSelector&sameQ=1&sameL=1" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="katanamedia">
+        <button class="save-btn">⭐</button>
+        <h2>Katana Media Works</h2>
+        <p><strong>Position:</strong> Technical Internships</p>
+        <p><strong>Duration:</strong> Not specified</p>
+        <p><strong>Amount:</strong> Not specified</p>
+        <p><strong>Skills:</strong> UI Design, Graphic Design, Video Editing</p>
+        <a href="https://lbb.in/pune/offbeat-summer-internships-in-pune/?utm_source=chatgpt.com" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="cmhs">
+        <button class="save-btn">⭐</button>
+        <h2>Center For Mental Health Services (CMHS)</h2>
+        <p><strong>Position:</strong> Mental Health Services Intern</p>
+        <p><strong>Duration:</strong> Not specified</p>
+        <p><strong>Amount:</strong> Performance-based stipend</p>
+        <p><strong>Skills:</strong> Psychology, Counselling, Empathy</p>
+        <a href="https://www.naukri.com/mental-health-internship-jobs" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="internship" data-id="indeed-it">
+        <button class="save-btn">⭐</button>
+        <h2>Indeed</h2>
+        <p><strong>Position:</strong> IT Engineer</p>
+        <p><strong>Duration:</strong> 3 Months</p>
+        <p><strong>Amount:</strong> ₹6500/month</p>
+        <p><strong>Skills:</strong> Networking, Troubleshooting, IT Support</p>
+        <a href="https://in.indeed.com/jobs?q=IT+engineer+internship&l=Pune%2C+Maharashtra" target="_blank">Apply Here</a>
+    </div>
+
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBox = document.getElementById("searchBox");
+      const searchButton = document.getElementById("searchButton");
+      const sortSelect = document.getElementById("sortSelect");
+      const skillFilter = document.getElementById("skillFilter");
+      const container = document.getElementById("internshipContainer");
+      const saveVisibleBtn = document.getElementById("saveVisible");
+      const viewSavedBtn = document.getElementById("viewSaved");
+
+      let showSavedOnly = false;
+
+      // Star save buttons logic
+      const savedIds = JSON.parse(localStorage.getItem("savedInternships") || "[]");
+      function updateStars() {
+        document.querySelectorAll(".internship").forEach(card => {
+          const id = card.dataset.id;
+          const btn = card.querySelector(".save-btn");
+          if (savedIds.includes(id)) btn.classList.add("saved");
+          else btn.classList.remove("saved");
+        });
+      }
+
+      document.querySelectorAll(".save-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          const id = e.target.closest(".internship").dataset.id;
+          const index = savedIds.indexOf(id);
+          if (index >= 0) savedIds.splice(index, 1);
+          else savedIds.push(id);
+          localStorage.setItem("savedInternships", JSON.stringify(savedIds));
+          updateStars();
+        });
+      });
+
+      // Helpers
+      function parseDuration(t){const m=t.match(/(\d+)\s*(week|month|year)/i);if(!m)return 999;const v=parseInt(m[1]);if(m[2].startsWith("week"))return v*7;if(m[2].startsWith("month"))return v*30;return v*365;}
+      function parseAmount(t){const n=t.replace(/[^\d]/g,"");return n?parseInt(n):0;}
+      function matchesSkill(s,q){if(!q)return true;const txt=s.innerText.toLowerCase();return q.split(',').some(skill=>txt.includes(skill.trim().toLowerCase()));}
+
+      function applyFilters(){
+        const q=searchBox.value.toLowerCase();
+        const skillQ=skillFilter.value.toLowerCase();
+        const sortVal=sortSelect.value;
+        const cards=[...document.querySelectorAll(".internship")];
+        cards.forEach(c=>{
+          const id=c.dataset.id;
+          const isSaved=savedIds.includes(id);
+          const txt=c.innerText.toLowerCase();
+          const visible=(!showSavedOnly||isSaved)&&txt.includes(q)&&matchesSkill(c,skillQ);
+          c.style.display=visible?"":"none";
+        });
+        const vis=cards.filter(c=>c.style.display!=="none");
+        if(sortVal){
+          vis.sort((a,b)=>{
+            if(sortVal==="duration")return parseDuration(a.innerText)-parseDuration(b.innerText);
+            if(sortVal==="amount")return parseAmount(b.innerText)-parseAmount(a.innerText);
+          });
+          vis.forEach(c=>container.appendChild(c));
+        }
+      }
+
+      viewSavedBtn.addEventListener("click",()=>{showSavedOnly=!showSavedOnly;viewSavedBtn.textContent=showSavedOnly?"View All":"View Saved";applyFilters();});
+      saveVisibleBtn.addEventListener("click",()=>{const visible=[...document.querySelectorAll(".internship")].filter(c=>c.style.display!=="none").map(c=>c.dataset.id);localStorage.setItem("savedInternships",JSON.stringify(visible));alert("Saved "+visible.length+" internships.");updateStars();});
+      searchButton.addEventListener("click",applyFilters);
+      searchBox.addEventListener("keyup",applyFilters);
+      skillFilter.addEventListener("keyup",applyFilters);
+      sortSelect.addEventListener("change",applyFilters);
+
+      updateStars();
+      applyFilters();
+    });
+  </script>
+</body>
+</html>
+
+

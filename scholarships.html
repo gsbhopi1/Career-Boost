@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarships</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(180deg, rgba(7, 10, 16, 0.95), rgba(12, 14, 20, 0.95)), url(https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=) center / cover no-repeat;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      color: #111827;
+    }
+    /* header {
+      background-color: #111827;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    nav ul li button {
+      background-color: #f59e0b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    } */
+
+  </style>
+</head>
+
+<body class = "home">
+  <header class="home-header">
+   <div class="hb-left">
+      <a href="home.html" class="logo" aria-label="CareerBoost home">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#111827"></circle>
+          <path d="M7 13l3 3 7-9" stroke="#F59E0B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand">CareerBoost</span>
+      </a>
+    </div>
+    <nav class="hb-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="scholarships.html">Scholarships</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="colleges.html">Colleges</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><input type="text" id="searchBox" placeholder="Search..." /></li>
+        <li><button id="searchButton">Search</button></li>
+      </ul>
+    </nav>
+  </header>
+<div class="filter-container">
+
+  <!-- 🔍 Filter by Category -->
+  <select id="categoryFilter">
+    <option value="">All Categories</option>
+    <option value="government">Government</option>
+    <option value="private">Private</option>
+    <option value="international">International</option>
+    <option value="merit">Merit-Based</option>
+  </select>
+
+  <!-- 🔽 Sort -->
+  <select id="sortSelect">
+    <option value="">Sort By</option>
+    <option value="amount-low">Amount (Low → High)</option>
+    <option value="amount-high">Amount (High → Low)</option>
+  </select>
+
+</div>
+  <section class="scholarship-container">
+    <!-- Example Existing Cards -->
+    <div class="scholarship" data-category="government">
+  <h2>Chevening Scholarship (United Kingdom)</h2>
+  <p><strong>Category:</strong> Government</p>
+  <p><strong>Eligibility:</strong> Completed undergraduate degree equivalent to a UK bachelor's.</p>
+  <p><strong>Amount:</strong> Full tuition fees for one-year Master's & Monthly stipend for living expenses.</p>
+  <a href="https://www.chevening.org/apply/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="international">
+  <h2>DAAD Scholarship (Germany)</h2>
+  <p><strong>Category:</strong> International</p>
+  <p><strong>Eligibility:</strong> For international graduates from developing countries (India included).</p>
+  <p><strong>Amount:</strong> Full tuition coverage & Monthly stipend</p>
+  <a href="https://www.daad.in/en/category/scholarships/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="international">
+  <h2>Erasmus Mundus Joint Master's Scholarship</h2>
+  <p><strong>Category:</strong> International</p>
+  <p><strong>Eligibility:</strong> Must have a bachelor's degree</p>
+  <p><strong>Amount:</strong> Full tuition + stipend</p>
+  <a href="https://erasmus-plus.ec.europa.eu/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="merit">
+  <h2>Fulbright-Nehru Master's Fellowship</h2>
+  <p><strong>Category:</strong> Merit-Based</p>
+  <p><strong>Eligibility:</strong> Indian citizen + work experience</p>
+  <p><strong>Amount:</strong> Up to USD 100,000</p>
+  <a href="https://www.usief.org.in/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="government">
+  <h2>National Scholarship Portal (NSP)</h2>
+  <p><strong>Category:</strong> Government</p>
+  <p><strong>Eligibility:</strong> Indian students pursuing post-matric courses</p>
+  <p><strong>Amount:</strong> Up to ₹30,000 per year</p>
+  <a href="https://scholarships.gov.in/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="government">
+  <h2>AICTE Pragati Scholarship for Girls</h2>
+  <p><strong>Category:</strong> Government</p>
+  <p><strong>Eligibility:</strong> Girl students in AICTE-approved colleges</p>
+  <p><strong>Amount:</strong> ₹50,000 per year</p>
+  <a href="https://www.aicte-india.org/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="government">
+  <h2>AICTE Saksham Scholarship</h2>
+  <p><strong>Category:</strong> Government</p>
+  <p><strong>Eligibility:</strong> Differently-abled students</p>
+  <p><strong>Amount:</strong> ₹50,000 per year</p>
+  <a href="https://www.aicte-india.org/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="merit">
+  <h2>Inspire Scholarship (INSPIRE-SHE)</h2>
+  <p><strong>Category:</strong> Merit-Based</p>
+  <p><strong>Eligibility:</strong> Science stream toppers</p>
+  <p><strong>Amount:</strong> ₹80,000 per year</p>
+  <a href="https://online-inspire.gov.in/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="private">
+  <h2>Google Women Techmakers Scholarship</h2>
+  <p><strong>Category:</strong> Private</p>
+  <p><strong>Eligibility:</strong> Female CS students</p>
+  <p><strong>Amount:</strong> ₹1,00,000 + mentorship</p>
+  <a href="https://buildyourfuture.withgoogle.com/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="private">
+  <h2>Reliance Foundation Scholarship</h2>
+  <p><strong>Category:</strong> Private</p>
+  <p><strong>Eligibility:</strong> UG/PG students</p>
+  <p><strong>Amount:</strong> Up to ₹6,00,000</p>
+  <a href="https://www.reliancefoundation.org/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="private">
+  <h2>Aditya Birla Scholarship</h2>
+  <p><strong>Category:</strong> Private</p>
+  <p><strong>Eligibility:</strong> Top institute students</p>
+  <p><strong>Amount:</strong> ₹1,80,000 per year</p>
+  <a href="https://www.adityabirlascholars.net/" target="_blank">Apply Here</a>
+</div>
+
+<div class="scholarship" data-category="government">
+  <h2>ONGC Scholarship</h2>
+  <p><strong>Category:</strong> Government</p>
+  <p><strong>Eligibility:</strong> SC/ST/OBC/EWS students</p>
+  <p><strong>Amount:</strong> ₹48,000 per year</p>
+  <a href="https://ongcscholar.org/" target="_blank">Apply Here</a>
+</div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBox = document.getElementById("searchBox");
+      const searchButton = document.getElementById("searchButton");
+      const sections = document.querySelectorAll(".scholarship");
+
+      function performSearch() {
+        const query = searchBox.value.toLowerCase();
+        sections.forEach((section) => {
+          if (section.innerText.toLowerCase().includes(query)) {
+            section.style.display = "block";
+          } else {
+            section.style.display = "none";
+          }
+        });
+      }
+
+      searchButton.addEventListener("click", performSearch);
+      searchBox.addEventListener("keyup", performSearch);
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+  const sortAmountButton = document.getElementById("sortAmountButton");
+  const container = document.querySelector(".scholarship-container");
+  const sections = Array.from(document.querySelectorAll(".scholarship"));
+
+  // Helper: extract numeric amount from text (handles ranges and currencies)
+  function extractAmount(text) {
+    let numbers = text.match(/[\d,]+/g); // get all numbers
+    if (!numbers) return Number.NEGATIVE_INFINITY; // non-numeric amounts go last
+    let numericValues = numbers.map(n => parseInt(n.replace(/,/g, ""), 10));
+    return Math.max(...numericValues); // pick largest in range
+  }
+
+  // Sort scholarships by amount (high to low)
+  function sortByAmount() {
+    const sortedSections = sections.slice().sort((a, b) => {
+      const aAmount = extractAmount(a.querySelector("p:nth-of-type(2)").innerText);
+      const bAmount = extractAmount(b.querySelector("p:nth-of-type(2)").innerText);
+      return bAmount - aAmount; // descending
+    });
+
+    container.innerHTML = "";
+    sortedSections.forEach(section => container.appendChild(section));
+  }
+  });
+    
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

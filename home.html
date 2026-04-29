@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CareerBoost</title>
+
+  <!-- keep original global styles (unchanged) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- optional: modern system font stack -->
+  <meta name="color-scheme" content="light dark">
+</head>
+
+<body class="home">
+  <!-- Header (keeps existing links & semantics so other pages remain compatible) -->
+  <header class="home-header">
+    <div class="hb-left">
+      <a href="home.html" class="logo" aria-label="CareerBoost home">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#111827"></circle>
+          <path d="M7 13l3 3 7-9" stroke="#F59E0B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand">CareerBoost</span>
+      </a>
+    </div>
+
+    <nav class="hb-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="scholarships.html">Scholarships</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="colleges.html">Colleges</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="hb-cta">
+      <button class="btn small" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" role="region" aria-label="Hero">
+    <div class="hero-inner">
+      <h1>Opportunities for every student — scholarships, internships & college guidance</h1>
+      <p class="lead">We gather curated, up-to-date opportunities and present them where they matter most — to you.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="scholarships.html">Find Scholarships</a>
+        <a class="btn ghost" href="internship.html">Browse Internships</a>
+      </div>
+      <div class="hero-stats" aria-hidden="true">
+        <div><strong>+1,200</strong><span>Opportunities</span></div>
+        <div><strong>+80</strong><span>Colleges</span></div>
+        <div><strong>24/7</strong><span>Support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features (cards) -->
+  <section class="features" aria-label="Features">
+    <div class="feature-card">
+      <div class="icon">🎓</div>
+      <h3>Scholarships</h3>
+      <p>Filtered by eligibility, deadlines and funding so you only see what applies to you.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">💼</div>
+      <h3>Internships</h3>
+      <p>Remote & on-site roles with filters for duration, stipend and skills required.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🏫</div>
+      <h3>College Suggestions</h3>
+      <p>Personalized suggestions based on cutoffs, location and branch popularity.</p>
+    </div>
+  </section>
+
+  <!-- Explore (kept same id so existing anchors/scripts remain functional) -->
+  <section id="explore-section" class="explore-section">
+    <div class="explore-inner">
+      <h2>Discover More Opportunities</h2>
+      <p>Explore detailed information about scholarships, internships, and college suggestions.</p>
+
+      <div class="explore-cards">
+        <article class="explore-card">
+          <h4>Hand-picked Scholarships</h4>
+          <p>Scholarships measured by eligibility, deadline urgency, and funding value.</p>
+          <a href="scholarships.html" class="link-arrow">View Scholarships →</a>
+        </article>
+
+        <article class="explore-card">
+          <h4>Internships by Skills</h4>
+          <p>Search internships by technology, domain, and duration to match your semester schedule.</p>
+          <a href="internship.html" class="link-arrow">Browse Internships →</a>
+        </article>
+
+        <article class="explore-card">
+          <h4>College Cutoffs</h4>
+          <p>Compare cutoff trends and category-wise percentiles across colleges.</p>
+          <a href="colleges.html" class="link-arrow">See Colleges →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (preserve original text) -->
+  <footer class="home-footer">
+    <div>
+      <p>&copy; 2025 CareerBoost. All rights reserved.</p>
+    </div>
+  </footer>
+ <!-- 💬 CHAT ICON BUTTON -->
+<div id="chat-toggle">💬</div>
+
+<!-- 🤖 CHATBOX -->
+<div id="chatbot-container" style="display:none;">
+  <div id="chat-header">
+    🤖 Career Assistant
+    <span id="close-chat">✖</span>
+  </div>
+
+  <div id="chatMessages"></div>
+
+  <div id="chat-input-area">
+    <input type="text" id="userInput" placeholder="Ask about careers..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
