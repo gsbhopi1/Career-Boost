@@ -52,7 +52,6 @@ CareerBoost/
 
 ## How to Run
 
-```bash
 ### 1. Clone the Repository
 
 git clone https://github.com/gsbhopi1/Career-Boost.git
@@ -76,7 +75,6 @@ Open:
 index.html
 
 or run through localhost.
-```
 
 ## Note
 
