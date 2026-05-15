@@ -54,27 +54,37 @@ CareerBoost/
 
 ### 1. Clone the Repository
 
+```bash
 git clone https://github.com/gsbhopi1/Career-Boost.git
+```
 
 ### 2. Install Dependencies
 
+```bash
 npm install
+```
 
 ### 3. Setup MySQL Database
 
+```bash
 Create a MySQL database and configure the credentials inside:
 server.js
+```
 
 ### 4. Run the Server
 
+```bash
 node server.js
+```
 
 ### 5. Open the Project
 
+```bash
 Open:
 index.html
 
 or run through localhost.
+```
 
 ## Note
 
