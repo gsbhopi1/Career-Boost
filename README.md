@@ -35,7 +35,7 @@ CareerBoost is a web platform designed to help students discover scholarships, i
 
 ## Project Structure
 
-CareerBoost/
+CareerBoost
 │
 ├── index.html
 ├── home.html
