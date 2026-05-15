@@ -35,7 +35,8 @@ CareerBoost is a web platform designed to help students discover scholarships, i
 
 ## Project Structure
 
-CareerBoost
+```bash
+CareerBoost/
 │
 ├── index.html
 ├── home.html
@@ -48,6 +49,7 @@ CareerBoost
 ├── server.js
 ├── package-lock.json
 └── package.json
+```
 
 ## How to Run
 
