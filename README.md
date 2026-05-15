@@ -4,6 +4,7 @@ CareerBoost is a web platform designed to help students discover scholarships, i
 
 ## Features
 
+```bash
 * Scholarship listing and filtering
 * Internship search and sorting
 * College recommendation system
@@ -12,10 +13,11 @@ CareerBoost is a web platform designed to help students discover scholarships, i
 * Responsive user interface
 * Backend API integration using Node.js and Express.js
 * MySQL database connectivity
-
+```
 
 ## Tech Stack
 
+```bash
 ### Frontend
 
 * HTML
@@ -27,11 +29,14 @@ CareerBoost is a web platform designed to help students discover scholarships, i
 * Node.js
 * Express.js
 * MySQL
+```
 
 ### Tools & Services
 
+```bash
 * Firebase Authentication
 * Git & GitHub
+```
 
 ## Project Structure
 
@@ -53,6 +58,7 @@ CareerBoost/
 
 ## How to Run
 
+```bash
 ### 1. Clone the Repository
 
 git clone https://github.com/gsbhopi1/Career-Boost.git
@@ -76,6 +82,7 @@ Open:
 index.html
 
 or run through localhost.
+```
 
 ## Note
 
